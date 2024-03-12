@@ -52,7 +52,10 @@ void AudioMixer_init(void)
 	// Initialize the currently active sound-bites being played
 	// REVISIT:- Implement this. Hint: set the pSound pointer to NULL for each
 	//     sound bite.
-
+    for(int i = 0; i < MAX_SOUND_BITES; i++){
+        soundBites[i].pSound = NULL; 
+        soundBites[i].location = 0; 
+    }
 
 
 
@@ -156,6 +159,22 @@ void AudioMixer_queueSound(wavedata_t *pSound)
 	 *    not being able to play another wave file.
 	 */
 
+    // 1. ensure threadsafe 
+    pthread_mutex_lock(&audioMutex); 
+
+    // 2. Search for free slot
+    for(int i = 0; i < MAX_SOUND_BITES; i++){
+        // 3. If a free slot is found the place sound
+        if(soundBites[i].pSound == NULL){ 
+            soundBites[i].pSound = pSound; 
+            pthread_mutex_unlock(&audioMutex); 
+            return; 
+        }
+    }
+    pthread_mutex_unlock(&audioMutex); 
+
+    // 4. print error message
+    printf("SoundBites is full, no free slots\n"); 
 
 
 
@@ -272,9 +291,52 @@ static void fillPlaybackBuffer(short *buff, int size)
 	 *          ... use someNum vs myArray[someIdx].value;
 	 *
 	 */
+    
+    // 1. wipe playback buffer to all 0's
+    memset(playbackBuffer, 0, size*sizeof(short)); 
 
+    // 2. synchronize soundBites thread 
+    pthread_mutex_lock(&audioMutex); 
 
+    // 3. update playback to match soundBites
+    for(int i = 0; i < MAX_SOUND_BITES; i++){
+        if(soundBites[i].pSound == NULL){
+            continue; 
+        }
+		
+		playbackSound_t sound = soundBites[i]; 
+		int loc = sound.location; 
 
+        for(int pos = 0; pos < size && loc < sound.pSound->numSamples; pos++, loc++){
+			short soundData = sound.pSound->pData[loc]; 
+            // overflow 
+			if(playbackBuffer[pos] > 0 && soundData > SHRT_MAX - playbackBuffer[pos]){
+				playbackBuffer[pos] = SHRT_MAX; 
+			
+			}
+			// underflow
+			else if(playbackBuffer[pos] < 0 && soundData < SHRT_MIN - playbackBuffer[pos]){
+				playbackBuffer[pos] = SHRT_MIN; 
+			}
+			else{
+				playbackBuffer[pos] += soundData; 
+
+			}
+
+        }
+		
+		// reset finished sound bite
+		if(loc >= sound.pSound->numSamples){
+			soundBites[i].pSound = NULL; 
+			soundBites->location = 0; 
+		}
+		// update
+		else{
+			soundBites[i].location = loc; 
+		}
+
+    }
+    pthread_mutex_unlock(&audioMutex); 
 
 
 
