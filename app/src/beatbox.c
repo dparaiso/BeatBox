@@ -16,13 +16,13 @@ int main(){
         AudioMixer_queueSound(&wavSounds[1]); //hi-hat
         AudioMixer_queueSound(&wavSounds[2]); //bass
         sleepForHalfBeat(120);
-        // AudioMixer_queueSound(&wavSounds[1]); //hi-hat
-        // sleepForHalfBeat(120);
-        // AudioMixer_queueSound(&wavSounds[1]); //hi-hat
-        // AudioMixer_queueSound(&wavSounds[0]); //snare
-        // sleepForHalfBeat(120); 
-        // AudioMixer_queueSound(&wavSounds[1]); //hi-hat
-        // sleepForHalfBeat(120);
+        AudioMixer_queueSound(&wavSounds[1]); //hi-hat
+        sleepForHalfBeat(120);
+        AudioMixer_queueSound(&wavSounds[1]); //hi-hat
+        AudioMixer_queueSound(&wavSounds[0]); //snare
+        sleepForHalfBeat(120); 
+        AudioMixer_queueSound(&wavSounds[1]); //hi-hat
+        sleepForHalfBeat(120);
 
     } 
     return 0; 

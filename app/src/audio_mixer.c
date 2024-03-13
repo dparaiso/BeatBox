@@ -167,6 +167,8 @@ void AudioMixer_queueSound(wavedata_t *pSound)
         // 3. If a free slot is found the place sound
         if(soundBites[i].pSound == NULL){ 
             soundBites[i].pSound = pSound; 
+			if (soundBites[i].pSound == NULL)
+				printf("still null plz work");
             pthread_mutex_unlock(&audioMutex); 
             return; 
         }
@@ -174,7 +176,7 @@ void AudioMixer_queueSound(wavedata_t *pSound)
     pthread_mutex_unlock(&audioMutex); 
 
     // 4. print error message
-    printf("SoundBites is full, no free slots\n"); 
+    printf("SoundBites is full, no free slots %d\n", soundBites->location); 
 
 
 
@@ -249,7 +251,7 @@ void AudioMixer_setVolume(int newVolume)
 // Fill the `buff` array with new PCM values to output.
 //    `buff`: buffer to fill with new PCM data from sound bites.
 //    `size`: the number of values to store into playbackBuffer
-static void fillPlaybackBuffer(short *buff, int size)
+static void fillPlaybackBuffer(short *playbackbuffer, int size)
 {
 	/*
 	 * REVISIT: Implement this
@@ -306,7 +308,6 @@ static void fillPlaybackBuffer(short *buff, int size)
 		
 		playbackSound_t sound = soundBites[i]; 
 		int loc = sound.location; 
-
         for(int pos = 0; pos < size && loc < sound.pSound->numSamples; pos++, loc++){
 			short soundData = sound.pSound->pData[loc]; 
             // overflow 
@@ -322,24 +323,25 @@ static void fillPlaybackBuffer(short *buff, int size)
 				playbackBuffer[pos] += soundData; 
 
 			}
-
+			// reset finished sound bite
+			if(loc >= sound.pSound->numSamples){
+				soundBites[i].pSound = NULL; 
+				loc = 0; 
+				printf("setting to 0");
+				break; 
+			}
         }
-		
-		// reset finished sound bite
 		if(loc >= sound.pSound->numSamples){
 			soundBites[i].pSound = NULL; 
-			soundBites->location = 0; 
+			loc = 0; 
 		}
+		
+		
 		// update
-		else{
-			soundBites[i].location = loc; 
-		}
+		soundBites[i].location = loc; 
 
     }
     pthread_mutex_unlock(&audioMutex); 
-
-
-
 
 }
 
