@@ -8,6 +8,11 @@ static char* files[] = {"wave-files/100059__menegass__gui-drum-snare-soft.wav", 
                         };   
 static wavedata_t wavSounds[3];
 
+
+//noDrumBeat is index 0, standardRockBeat is index 1, otherBeat is index 2
+static int bpmArray[] =  {0, 0, 0};
+static int activeArray[] =  {0, 0, 0};
+
 void initializeSounds(){
     for(int i = 0; i < 3; i++){
         AudioMixer_readWaveFileIntoMemory(files[i], &wavSounds[i] );
@@ -15,6 +20,10 @@ void initializeSounds(){
 }
 
 void noDrumBeat(){
+    bpmArray[BEATS_NO_DRUM_BEAT] = 0;
+    activeArray[BEATS_NO_DRUM_BEAT] = 1;
+    activeArray[BEATS_STANDARD_ROCK_BEAT] = 0;
+    activeArray[BEATS_OTHER_BEAT] = 0;
     // figure out how to turn off
 }
 
@@ -30,6 +39,10 @@ void standardRockBeat(int bpm){
     AudioMixer_queueSound(&wavSounds[1]); //hi-hat
     sleepForHalfBeat(bpm);
 
+    bpmArray[BEATS_STANDARD_ROCK_BEAT] = bpm;
+    activeArray[BEATS_NO_DRUM_BEAT] = 0;
+    activeArray[BEATS_STANDARD_ROCK_BEAT] = 1;
+    activeArray[BEATS_OTHER_BEAT] = 0;
 }
 
 void otherBeat(int bpm){
@@ -47,4 +60,24 @@ void otherBeat(int bpm){
     AudioMixer_queueSound(&wavSounds[1]); //hi-hat
     sleepForHalfBeat(bpm);     
 
+    bpmArray[BEATS_OTHER_BEAT] = bpm;
+    activeArray[BEATS_NO_DRUM_BEAT] = 0;
+    activeArray[BEATS_STANDARD_ROCK_BEAT] = 0;
+    activeArray[BEATS_OTHER_BEAT] = 1;
+}
+
+Beats_BeatIndex getActive() {
+    for(int i = 0; i < NUM_BEATS; i++) {
+        if(activeArray[i]) {
+            return (Beats_BeatIndex)i;
+        }
+    }
+    return NUM_BEATS;
+}
+
+int getBpm(Beats_BeatIndex index) {
+    if(index >= NUM_BEATS) {
+        return NUM_BEATS;
+    }
+    return bpmArray[index];
 }
