@@ -14,5 +14,8 @@ int main(){
         // otherBeat(120); 
 
     } 
+    AudioMixer_cleanup(); 
+    joystick_cleanup(); 
+    freeSounds(); 
     return 0; 
 }

@@ -2,8 +2,10 @@
 #define _BEATS_H_
 
 void initializeSounds();
-void noDrumBeat();
-void standardRockBeat(int bpm);
-void otherBeat(int bpm);
+void freeSounds(); 
+void cancelThread(); 
+void* standardRockBeat();
+void* otherBeat();
+void* playMode();
 
 #endif
