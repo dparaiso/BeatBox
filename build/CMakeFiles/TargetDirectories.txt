@@ -1,8 +1,0 @@
-/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles/rebuild_cache.dir
-/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles/edit_cache.dir
-/home/adpop/cmpt433/work/BeatBox/build/hal/CMakeFiles/rebuild_cache.dir
-/home/adpop/cmpt433/work/BeatBox/build/hal/CMakeFiles/edit_cache.dir
-/home/adpop/cmpt433/work/BeatBox/build/hal/CMakeFiles/hal.dir
-/home/adpop/cmpt433/work/BeatBox/build/app/CMakeFiles/rebuild_cache.dir
-/home/adpop/cmpt433/work/BeatBox/build/app/CMakeFiles/edit_cache.dir
-/home/adpop/cmpt433/work/BeatBox/build/app/CMakeFiles/wave_player_cmake.dir
