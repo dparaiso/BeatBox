@@ -89,9 +89,22 @@ app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s"
 	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/adpop/cmpt433/work/BeatBox/app/src/beatbox.c -o CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s
 
+app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o: app/CMakeFiles/wave_player_cmake.dir/flags.make
+app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o: ../app/src/text_display.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o"
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/wave_player_cmake.dir/src/text_display.c.o -c /home/adpop/cmpt433/work/BeatBox/app/src/text_display.c
+
+app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/wave_player_cmake.dir/src/text_display.c.i"
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/adpop/cmpt433/work/BeatBox/app/src/text_display.c > CMakeFiles/wave_player_cmake.dir/src/text_display.c.i
+
+app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/wave_player_cmake.dir/src/text_display.c.s"
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/adpop/cmpt433/work/BeatBox/app/src/text_display.c -o CMakeFiles/wave_player_cmake.dir/src/text_display.c.s
+
 app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o: app/CMakeFiles/wave_player_cmake.dir/flags.make
 app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o: ../app/src/wave_player.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o"
 	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o -c /home/adpop/cmpt433/work/BeatBox/app/src/wave_player.c
 
 app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.i: cmake_force
@@ -105,17 +118,19 @@ app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.s: cmake_force
 # Object files for target wave_player_cmake
 wave_player_cmake_OBJECTS = \
 "CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o" \
+"CMakeFiles/wave_player_cmake.dir/src/text_display.c.o" \
 "CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o"
 
 # External object files for target wave_player_cmake
 wave_player_cmake_EXTERNAL_OBJECTS =
 
 app/wave_player_cmake: app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o
+app/wave_player_cmake: app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o
 app/wave_player_cmake: app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o
 app/wave_player_cmake: app/CMakeFiles/wave_player_cmake.dir/build.make
 app/wave_player_cmake: hal/libhal.a
 app/wave_player_cmake: app/CMakeFiles/wave_player_cmake.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable wave_player_cmake"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable wave_player_cmake"
 	cd /home/adpop/cmpt433/work/BeatBox/build/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/wave_player_cmake.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying ARM executable to public NFS directory"
 	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/cmake -E copy /home/adpop/cmpt433/work/BeatBox/build/app/wave_player_cmake ~/cmpt433/public/myApps/wave_player_cmake

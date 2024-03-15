@@ -6,33 +6,27 @@
 
 #IncludeRegexTransform: 
 
-../hal/include/hal/audio_mixer.h
+../app/include/periodTimer.h
 
-../hal/include/hal/beats.h
+../app/include/text_display.h
 
-../hal/include/hal/joystick.h
-stdbool.h
+../hal/include/hal/timer.h
+time.h
 -
+
+/home/adpop/cmpt433/work/BeatBox/app/src/text_display.c
 stdio.h
 -
 stdlib.h
 -
 pthread.h
 -
-
-../hal/include/hal/timer.h
-time.h
+stdbool.h
 -
-
-/home/adpop/cmpt433/work/BeatBox/app/src/beatbox.c
-stdio.h
--
-hal/audio_mixer.h
-/home/adpop/cmpt433/work/BeatBox/app/src/hal/audio_mixer.h
+text_display.h
+/home/adpop/cmpt433/work/BeatBox/app/src/text_display.h
 hal/timer.h
 /home/adpop/cmpt433/work/BeatBox/app/src/hal/timer.h
-hal/beats.h
-/home/adpop/cmpt433/work/BeatBox/app/src/hal/beats.h
-hal/joystick.h
-/home/adpop/cmpt433/work/BeatBox/app/src/hal/joystick.h
+periodTimer.h
+/home/adpop/cmpt433/work/BeatBox/app/src/periodTimer.h
 

@@ -7,5 +7,10 @@ app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o: ../hal/include/hal/joystic
 app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o: ../hal/include/hal/timer.h
 app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o: ../app/src/beatbox.c
 
+app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o: ../app/include/periodTimer.h
+app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o: ../app/include/text_display.h
+app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o: ../hal/include/hal/timer.h
+app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o: ../app/src/text_display.c
+
 app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o: ../app/src/wave_player.c
 

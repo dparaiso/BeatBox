@@ -171,6 +171,33 @@ src/beatbox.c.s:
 	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s
 .PHONY : src/beatbox.c.s
 
+src/text_display.o: src/text_display.c.o
+
+.PHONY : src/text_display.o
+
+# target to build an object file
+src/text_display.c.o:
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o
+.PHONY : src/text_display.c.o
+
+src/text_display.i: src/text_display.c.i
+
+.PHONY : src/text_display.i
+
+# target to preprocess a source file
+src/text_display.c.i:
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.i
+.PHONY : src/text_display.c.i
+
+src/text_display.s: src/text_display.c.s
+
+.PHONY : src/text_display.s
+
+# target to generate assembly for a file
+src/text_display.c.s:
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.s
+.PHONY : src/text_display.c.s
+
 src/wave_player.o: src/wave_player.c.o
 
 .PHONY : src/wave_player.o
@@ -210,6 +237,9 @@ help:
 	@echo "... src/beatbox.o"
 	@echo "... src/beatbox.i"
 	@echo "... src/beatbox.s"
+	@echo "... src/text_display.o"
+	@echo "... src/text_display.i"
+	@echo "... src/text_display.s"
 	@echo "... src/wave_player.o"
 	@echo "... src/wave_player.i"
 	@echo "... src/wave_player.s"

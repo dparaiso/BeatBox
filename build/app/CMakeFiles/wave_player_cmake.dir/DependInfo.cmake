@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
   "/home/adpop/cmpt433/work/BeatBox/app/src/beatbox.c" "/home/adpop/cmpt433/work/BeatBox/build/app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o"
+  "/home/adpop/cmpt433/work/BeatBox/app/src/text_display.c" "/home/adpop/cmpt433/work/BeatBox/build/app/CMakeFiles/wave_player_cmake.dir/src/text_display.c.o"
   "/home/adpop/cmpt433/work/BeatBox/app/src/wave_player.c" "/home/adpop/cmpt433/work/BeatBox/build/app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")

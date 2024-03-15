@@ -1,1 +1,1 @@
-/usr/bin/arm-linux-gnueabihf-gcc -g -fsanitize=address CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o -o wave_player_cmake  ../hal/libhal.a -lasound -lpthread 
+/usr/bin/arm-linux-gnueabihf-gcc -g -fsanitize=address CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o CMakeFiles/wave_player_cmake.dir/src/text_display.c.o CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o -o wave_player_cmake  ../hal/libhal.a -lasound -lpthread 
