@@ -4,7 +4,7 @@
 # compile C with /usr/bin/arm-linux-gnueabihf-gcc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/danieva/cmpt433/work/as3/audio_cmake/app/include -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/include
+C_INCLUDES = -I/home/adpop/cmpt433/work/BeatBox/app/include -I/home/adpop/cmpt433/work/BeatBox/hal/include
 
 C_FLAGS = -g -Wall -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -std=gnu11
 

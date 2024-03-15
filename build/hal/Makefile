@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/as3/audio_cmake
+CMAKE_SOURCE_DIR = /home/adpop/cmpt433/work/BeatBox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/as3/audio_cmake/build
+CMAKE_BINARY_DIR = /home/adpop/cmpt433/work/BeatBox/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles /home/danieva/cmpt433/work/as3/audio_cmake/build/hal//CMakeFiles/progress.marks
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles 0
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/adpop/cmpt433/work/BeatBox/build/CMakeFiles /home/adpop/cmpt433/work/BeatBox/build/hal//CMakeFiles/progress.marks
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adpop/cmpt433/work/BeatBox/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/clean
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 hal/CMakeFiles/hal.dir/rule:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/CMakeFiles/hal.dir/rule
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 hal/CMakeFiles/hal.dir/rule
 .PHONY : hal/CMakeFiles/hal.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ hal: hal/CMakeFiles/hal.dir/rule
 
 # fast build rule for target.
 hal/fast:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/build
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/build
 .PHONY : hal/fast
 
 src/audio_mixer.o: src/audio_mixer.c.o
@@ -150,7 +150,7 @@ src/audio_mixer.o: src/audio_mixer.c.o
 
 # target to build an object file
 src/audio_mixer.c.o:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/audio_mixer.c.o
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/audio_mixer.c.o
 .PHONY : src/audio_mixer.c.o
 
 src/audio_mixer.i: src/audio_mixer.c.i
@@ -159,7 +159,7 @@ src/audio_mixer.i: src/audio_mixer.c.i
 
 # target to preprocess a source file
 src/audio_mixer.c.i:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/audio_mixer.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/audio_mixer.c.i
 .PHONY : src/audio_mixer.c.i
 
 src/audio_mixer.s: src/audio_mixer.c.s
@@ -168,7 +168,7 @@ src/audio_mixer.s: src/audio_mixer.c.s
 
 # target to generate assembly for a file
 src/audio_mixer.c.s:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/audio_mixer.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/audio_mixer.c.s
 .PHONY : src/audio_mixer.c.s
 
 src/beats.o: src/beats.c.o
@@ -177,7 +177,7 @@ src/beats.o: src/beats.c.o
 
 # target to build an object file
 src/beats.c.o:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/beats.c.o
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/beats.c.o
 .PHONY : src/beats.c.o
 
 src/beats.i: src/beats.c.i
@@ -186,7 +186,7 @@ src/beats.i: src/beats.c.i
 
 # target to preprocess a source file
 src/beats.c.i:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/beats.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/beats.c.i
 .PHONY : src/beats.c.i
 
 src/beats.s: src/beats.c.s
@@ -195,7 +195,7 @@ src/beats.s: src/beats.c.s
 
 # target to generate assembly for a file
 src/beats.c.s:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/beats.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/beats.c.s
 .PHONY : src/beats.c.s
 
 src/joystick.o: src/joystick.c.o
@@ -204,7 +204,7 @@ src/joystick.o: src/joystick.c.o
 
 # target to build an object file
 src/joystick.c.o:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.o
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.o
 .PHONY : src/joystick.c.o
 
 src/joystick.i: src/joystick.c.i
@@ -213,7 +213,7 @@ src/joystick.i: src/joystick.c.i
 
 # target to preprocess a source file
 src/joystick.c.i:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.i
 .PHONY : src/joystick.c.i
 
 src/joystick.s: src/joystick.c.s
@@ -222,7 +222,7 @@ src/joystick.s: src/joystick.c.s
 
 # target to generate assembly for a file
 src/joystick.c.s:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/joystick.c.s
 .PHONY : src/joystick.c.s
 
 src/timer.o: src/timer.c.o
@@ -231,7 +231,7 @@ src/timer.o: src/timer.c.o
 
 # target to build an object file
 src/timer.c.o:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/timer.c.o
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/timer.c.o
 .PHONY : src/timer.c.o
 
 src/timer.i: src/timer.c.i
@@ -240,7 +240,7 @@ src/timer.i: src/timer.c.i
 
 # target to preprocess a source file
 src/timer.c.i:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/timer.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/timer.c.i
 .PHONY : src/timer.c.i
 
 src/timer.s: src/timer.c.s
@@ -249,7 +249,7 @@ src/timer.s: src/timer.c.s
 
 # target to generate assembly for a file
 src/timer.c.s:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/timer.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f hal/CMakeFiles/hal.dir/build.make hal/CMakeFiles/hal.dir/src/timer.c.s
 .PHONY : src/timer.c.s
 
 # Help Target
@@ -284,6 +284,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

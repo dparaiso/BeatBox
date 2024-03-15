@@ -45,6 +45,13 @@ static pthread_mutex_t audioMutex = PTHREAD_MUTEX_INITIALIZER;
 
 static int volume = 0;
 
+void AudioMixer_stopPlayback() {
+	if(handle) {
+		snd_pcm_drop(handle);
+		snd_pcm_prepare(handle);
+	}
+}
+
 void AudioMixer_init(void)
 {
 	AudioMixer_setVolume(DEFAULT_VOLUME);

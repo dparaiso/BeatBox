@@ -20,9 +20,9 @@ pthread.h
 time.h
 -
 
-/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/joystick.c
+/home/adpop/cmpt433/work/BeatBox/hal/src/joystick.c
 hal/joystick.h
-/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/hal/joystick.h
+/home/adpop/cmpt433/work/BeatBox/hal/src/hal/joystick.h
 hal/timer.h
-/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/hal/timer.h
+/home/adpop/cmpt433/work/BeatBox/hal/src/hal/timer.h
 

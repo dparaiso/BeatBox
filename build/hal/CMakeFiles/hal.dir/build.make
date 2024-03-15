@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/as3/audio_cmake
+CMAKE_SOURCE_DIR = /home/adpop/cmpt433/work/BeatBox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/as3/audio_cmake/build
+CMAKE_BINARY_DIR = /home/adpop/cmpt433/work/BeatBox/build
 
 # Include any dependencies generated for this target.
 include hal/CMakeFiles/hal.dir/depend.make
@@ -78,55 +78,55 @@ include hal/CMakeFiles/hal.dir/flags.make
 
 hal/CMakeFiles/hal.dir/src/audio_mixer.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/audio_mixer.c.o: ../hal/src/audio_mixer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object hal/CMakeFiles/hal.dir/src/audio_mixer.c.o"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/audio_mixer.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/audio_mixer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object hal/CMakeFiles/hal.dir/src/audio_mixer.c.o"
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/audio_mixer.c.o -c /home/adpop/cmpt433/work/BeatBox/hal/src/audio_mixer.c
 
 hal/CMakeFiles/hal.dir/src/audio_mixer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/audio_mixer.c.i"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/audio_mixer.c > CMakeFiles/hal.dir/src/audio_mixer.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/adpop/cmpt433/work/BeatBox/hal/src/audio_mixer.c > CMakeFiles/hal.dir/src/audio_mixer.c.i
 
 hal/CMakeFiles/hal.dir/src/audio_mixer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/audio_mixer.c.s"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/audio_mixer.c -o CMakeFiles/hal.dir/src/audio_mixer.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/adpop/cmpt433/work/BeatBox/hal/src/audio_mixer.c -o CMakeFiles/hal.dir/src/audio_mixer.c.s
 
 hal/CMakeFiles/hal.dir/src/beats.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/beats.c.o: ../hal/src/beats.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object hal/CMakeFiles/hal.dir/src/beats.c.o"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/beats.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/beats.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object hal/CMakeFiles/hal.dir/src/beats.c.o"
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/beats.c.o -c /home/adpop/cmpt433/work/BeatBox/hal/src/beats.c
 
 hal/CMakeFiles/hal.dir/src/beats.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/beats.c.i"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/beats.c > CMakeFiles/hal.dir/src/beats.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/adpop/cmpt433/work/BeatBox/hal/src/beats.c > CMakeFiles/hal.dir/src/beats.c.i
 
 hal/CMakeFiles/hal.dir/src/beats.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/beats.c.s"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/beats.c -o CMakeFiles/hal.dir/src/beats.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/adpop/cmpt433/work/BeatBox/hal/src/beats.c -o CMakeFiles/hal.dir/src/beats.c.s
 
 hal/CMakeFiles/hal.dir/src/joystick.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/joystick.c.o: ../hal/src/joystick.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object hal/CMakeFiles/hal.dir/src/joystick.c.o"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/joystick.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/joystick.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object hal/CMakeFiles/hal.dir/src/joystick.c.o"
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/joystick.c.o -c /home/adpop/cmpt433/work/BeatBox/hal/src/joystick.c
 
 hal/CMakeFiles/hal.dir/src/joystick.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/joystick.c.i"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/joystick.c > CMakeFiles/hal.dir/src/joystick.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/adpop/cmpt433/work/BeatBox/hal/src/joystick.c > CMakeFiles/hal.dir/src/joystick.c.i
 
 hal/CMakeFiles/hal.dir/src/joystick.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/joystick.c.s"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/joystick.c -o CMakeFiles/hal.dir/src/joystick.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/adpop/cmpt433/work/BeatBox/hal/src/joystick.c -o CMakeFiles/hal.dir/src/joystick.c.s
 
 hal/CMakeFiles/hal.dir/src/timer.c.o: hal/CMakeFiles/hal.dir/flags.make
 hal/CMakeFiles/hal.dir/src/timer.c.o: ../hal/src/timer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object hal/CMakeFiles/hal.dir/src/timer.c.o"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/timer.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/timer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object hal/CMakeFiles/hal.dir/src/timer.c.o"
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/hal.dir/src/timer.c.o -c /home/adpop/cmpt433/work/BeatBox/hal/src/timer.c
 
 hal/CMakeFiles/hal.dir/src/timer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/hal.dir/src/timer.c.i"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/timer.c > CMakeFiles/hal.dir/src/timer.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/adpop/cmpt433/work/BeatBox/hal/src/timer.c > CMakeFiles/hal.dir/src/timer.c.i
 
 hal/CMakeFiles/hal.dir/src/timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/hal.dir/src/timer.c.s"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/timer.c -o CMakeFiles/hal.dir/src/timer.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/adpop/cmpt433/work/BeatBox/hal/src/timer.c -o CMakeFiles/hal.dir/src/timer.c.s
 
 # Object files for target hal
 hal_OBJECTS = \
@@ -144,9 +144,9 @@ hal/libhal.a: hal/CMakeFiles/hal.dir/src/joystick.c.o
 hal/libhal.a: hal/CMakeFiles/hal.dir/src/timer.c.o
 hal/libhal.a: hal/CMakeFiles/hal.dir/build.make
 hal/libhal.a: hal/CMakeFiles/hal.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C static library libhal.a"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && $(CMAKE_COMMAND) -P CMakeFiles/hal.dir/cmake_clean_target.cmake
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hal.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C static library libhal.a"
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && $(CMAKE_COMMAND) -P CMakeFiles/hal.dir/cmake_clean_target.cmake
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/hal.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 hal/CMakeFiles/hal.dir/build: hal/libhal.a
@@ -154,10 +154,10 @@ hal/CMakeFiles/hal.dir/build: hal/libhal.a
 .PHONY : hal/CMakeFiles/hal.dir/build
 
 hal/CMakeFiles/hal.dir/clean:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/hal && $(CMAKE_COMMAND) -P CMakeFiles/hal.dir/cmake_clean.cmake
+	cd /home/adpop/cmpt433/work/BeatBox/build/hal && $(CMAKE_COMMAND) -P CMakeFiles/hal.dir/cmake_clean.cmake
 .PHONY : hal/CMakeFiles/hal.dir/clean
 
 hal/CMakeFiles/hal.dir/depend:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danieva/cmpt433/work/as3/audio_cmake /home/danieva/cmpt433/work/as3/audio_cmake/hal /home/danieva/cmpt433/work/as3/audio_cmake/build /home/danieva/cmpt433/work/as3/audio_cmake/build/hal /home/danieva/cmpt433/work/as3/audio_cmake/build/hal/CMakeFiles/hal.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/adpop/cmpt433/work/BeatBox /home/adpop/cmpt433/work/BeatBox/hal /home/adpop/cmpt433/work/BeatBox/build /home/adpop/cmpt433/work/BeatBox/build/hal /home/adpop/cmpt433/work/BeatBox/build/hal/CMakeFiles/hal.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : hal/CMakeFiles/hal.dir/depend
 

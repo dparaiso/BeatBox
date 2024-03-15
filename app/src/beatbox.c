@@ -10,7 +10,7 @@ int main(){
     AudioMixer_init(); 
     joystick_init();
     while(1){
-        // standardRockBeat(120);
+        standardRockBeat(120);
         // otherBeat(120); 
 
     } 

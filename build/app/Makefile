@@ -67,10 +67,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/as3/audio_cmake
+CMAKE_SOURCE_DIR = /home/adpop/cmpt433/work/BeatBox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/as3/audio_cmake/build
+CMAKE_BINARY_DIR = /home/adpop/cmpt433/work/BeatBox/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,14 +99,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles /home/danieva/cmpt433/work/as3/audio_cmake/build/app//CMakeFiles/progress.marks
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles 0
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/adpop/cmpt433/work/BeatBox/build/CMakeFiles /home/adpop/cmpt433/work/BeatBox/build/app//CMakeFiles/progress.marks
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adpop/cmpt433/work/BeatBox/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/clean
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/clean
 .PHONY : clean
 
 # The main clean target
@@ -116,22 +116,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 app/CMakeFiles/wave_player_cmake.dir/rule:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/wave_player_cmake.dir/rule
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app/CMakeFiles/wave_player_cmake.dir/rule
 .PHONY : app/CMakeFiles/wave_player_cmake.dir/rule
 
 # Convenience name for target.
@@ -141,7 +141,7 @@ wave_player_cmake: app/CMakeFiles/wave_player_cmake.dir/rule
 
 # fast build rule for target.
 wave_player_cmake/fast:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/build
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/build
 .PHONY : wave_player_cmake/fast
 
 src/beatbox.o: src/beatbox.c.o
@@ -150,7 +150,7 @@ src/beatbox.o: src/beatbox.c.o
 
 # target to build an object file
 src/beatbox.c.o:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o
 .PHONY : src/beatbox.c.o
 
 src/beatbox.i: src/beatbox.c.i
@@ -159,7 +159,7 @@ src/beatbox.i: src/beatbox.c.i
 
 # target to preprocess a source file
 src/beatbox.c.i:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.i
 .PHONY : src/beatbox.c.i
 
 src/beatbox.s: src/beatbox.c.s
@@ -168,7 +168,7 @@ src/beatbox.s: src/beatbox.c.s
 
 # target to generate assembly for a file
 src/beatbox.c.s:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s
 .PHONY : src/beatbox.c.s
 
 src/wave_player.o: src/wave_player.c.o
@@ -177,7 +177,7 @@ src/wave_player.o: src/wave_player.c.o
 
 # target to build an object file
 src/wave_player.c.o:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o
 .PHONY : src/wave_player.c.o
 
 src/wave_player.i: src/wave_player.c.i
@@ -186,7 +186,7 @@ src/wave_player.i: src/wave_player.c.i
 
 # target to preprocess a source file
 src/wave_player.c.i:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.i
 .PHONY : src/wave_player.c.i
 
 src/wave_player.s: src/wave_player.c.s
@@ -195,7 +195,7 @@ src/wave_player.s: src/wave_player.c.s
 
 # target to generate assembly for a file
 src/wave_player.c.s:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(MAKE) $(MAKESILENT) -f app/CMakeFiles/wave_player_cmake.dir/build.make app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.s
 .PHONY : src/wave_player.c.s
 
 # Help Target
@@ -224,6 +224,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -446,8 +446,8 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "/home/danieva/cmpt433/work/as3/audio_cmake/build",
-		"source" : "/home/danieva/cmpt433/work/as3/audio_cmake"
+		"build" : "/home/adpop/cmpt433/work/BeatBox/build",
+		"source" : "/home/adpop/cmpt433/work/BeatBox"
 	},
 	"version" : 
 	{

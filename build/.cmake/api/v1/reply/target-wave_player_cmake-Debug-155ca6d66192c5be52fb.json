@@ -115,11 +115,11 @@
 			[
 				{
 					"backtrace" : 9,
-					"path" : "/home/danieva/cmpt433/work/as3/audio_cmake/app/include"
+					"path" : "/home/adpop/cmpt433/work/BeatBox/app/include"
 				},
 				{
 					"backtrace" : 4,
-					"path" : "/home/danieva/cmpt433/work/as3/audio_cmake/hal/include"
+					"path" : "/home/adpop/cmpt433/work/BeatBox/hal/include"
 				}
 			],
 			"language" : "C",

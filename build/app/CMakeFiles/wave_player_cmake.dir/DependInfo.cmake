@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/danieva/cmpt433/work/as3/audio_cmake/app/src/beatbox.c" "/home/danieva/cmpt433/work/as3/audio_cmake/build/app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o"
-  "/home/danieva/cmpt433/work/as3/audio_cmake/app/src/wave_player.c" "/home/danieva/cmpt433/work/as3/audio_cmake/build/app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o"
+  "/home/adpop/cmpt433/work/BeatBox/app/src/beatbox.c" "/home/adpop/cmpt433/work/BeatBox/build/app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o"
+  "/home/adpop/cmpt433/work/BeatBox/app/src/wave_player.c" "/home/adpop/cmpt433/work/BeatBox/build/app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -17,7 +17,7 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/danieva/cmpt433/work/as3/audio_cmake/build/hal/CMakeFiles/hal.dir/DependInfo.cmake"
+  "/home/adpop/cmpt433/work/BeatBox/build/hal/CMakeFiles/hal.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

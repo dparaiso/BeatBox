@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/audio_mixer.c" "/home/danieva/cmpt433/work/as3/audio_cmake/build/hal/CMakeFiles/hal.dir/src/audio_mixer.c.o"
-  "/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/beats.c" "/home/danieva/cmpt433/work/as3/audio_cmake/build/hal/CMakeFiles/hal.dir/src/beats.c.o"
-  "/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/joystick.c" "/home/danieva/cmpt433/work/as3/audio_cmake/build/hal/CMakeFiles/hal.dir/src/joystick.c.o"
-  "/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/timer.c" "/home/danieva/cmpt433/work/as3/audio_cmake/build/hal/CMakeFiles/hal.dir/src/timer.c.o"
+  "/home/adpop/cmpt433/work/BeatBox/hal/src/audio_mixer.c" "/home/adpop/cmpt433/work/BeatBox/build/hal/CMakeFiles/hal.dir/src/audio_mixer.c.o"
+  "/home/adpop/cmpt433/work/BeatBox/hal/src/beats.c" "/home/adpop/cmpt433/work/BeatBox/build/hal/CMakeFiles/hal.dir/src/beats.c.o"
+  "/home/adpop/cmpt433/work/BeatBox/hal/src/joystick.c" "/home/adpop/cmpt433/work/BeatBox/build/hal/CMakeFiles/hal.dir/src/joystick.c.o"
+  "/home/adpop/cmpt433/work/BeatBox/hal/src/timer.c" "/home/adpop/cmpt433/work/BeatBox/build/hal/CMakeFiles/hal.dir/src/timer.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

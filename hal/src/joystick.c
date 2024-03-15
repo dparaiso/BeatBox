@@ -89,6 +89,7 @@ void* joystickController(){
                     vol = 100; 
                 }
                 AudioMixer_setVolume(vol);
+                sleepForMs(200);
                 break; 
             case 2: // DOWN
                 vol = AudioMixer_getVolume() - 5; 
@@ -96,6 +97,7 @@ void* joystickController(){
                     vol = 0; 
                 }
                 AudioMixer_setVolume(vol);
+                sleepForMs(200);
                 break; 
             case 3: // left
                 bpm -= 5; 
@@ -114,6 +116,7 @@ void* joystickController(){
                 if(beatMode > 2){
                     beatMode = 0; 
                 }
+                
                 break; 
         }
 

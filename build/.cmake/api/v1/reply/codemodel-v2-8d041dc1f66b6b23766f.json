@@ -70,14 +70,14 @@
 				{
 					"directoryIndex" : 1,
 					"id" : "hal::@ad971efe0e95b39e260f",
-					"jsonFile" : "target-hal-Debug-e3fa9ccbbf2b99c5f8c5.json",
+					"jsonFile" : "target-hal-Debug-bae0c7aabbd789f2e08e.json",
 					"name" : "hal",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "wave_player_cmake::@5f5a17c01335469806cb",
-					"jsonFile" : "target-wave_player_cmake-Debug-72ccd36357209b940788.json",
+					"jsonFile" : "target-wave_player_cmake-Debug-155ca6d66192c5be52fb.json",
 					"name" : "wave_player_cmake",
 					"projectIndex" : 0
 				}
@@ -87,8 +87,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/danieva/cmpt433/work/as3/audio_cmake/build",
-		"source" : "/home/danieva/cmpt433/work/as3/audio_cmake"
+		"build" : "/home/adpop/cmpt433/work/BeatBox/build",
+		"source" : "/home/adpop/cmpt433/work/BeatBox"
 	},
 	"version" : 
 	{

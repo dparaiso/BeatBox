@@ -1,4 +1,4 @@
-# Install script for directory: /home/danieva/cmpt433/work/as3/audio_cmake/hal
+# Install script for directory: /home/adpop/cmpt433/work/BeatBox/hal
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

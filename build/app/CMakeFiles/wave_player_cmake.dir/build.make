@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/danieva/cmpt433/work/as3/audio_cmake
+CMAKE_SOURCE_DIR = /home/adpop/cmpt433/work/BeatBox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/danieva/cmpt433/work/as3/audio_cmake/build
+CMAKE_BINARY_DIR = /home/adpop/cmpt433/work/BeatBox/build
 
 # Include any dependencies generated for this target.
 include app/CMakeFiles/wave_player_cmake.dir/depend.make
@@ -78,29 +78,29 @@ include app/CMakeFiles/wave_player_cmake.dir/flags.make
 
 app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o: app/CMakeFiles/wave_player_cmake.dir/flags.make
 app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o: ../app/src/beatbox.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/app/src/beatbox.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o"
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o -c /home/adpop/cmpt433/work/BeatBox/app/src/beatbox.c
 
 app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/wave_player_cmake.dir/src/beatbox.c.i"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/as3/audio_cmake/app/src/beatbox.c > CMakeFiles/wave_player_cmake.dir/src/beatbox.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/adpop/cmpt433/work/BeatBox/app/src/beatbox.c > CMakeFiles/wave_player_cmake.dir/src/beatbox.c.i
 
 app/CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/as3/audio_cmake/app/src/beatbox.c -o CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/adpop/cmpt433/work/BeatBox/app/src/beatbox.c -o CMakeFiles/wave_player_cmake.dir/src/beatbox.c.s
 
 app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o: app/CMakeFiles/wave_player_cmake.dir/flags.make
 app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o: ../app/src/wave_player.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/app/src/wave_player.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o"
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o -c /home/adpop/cmpt433/work/BeatBox/app/src/wave_player.c
 
 app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/wave_player_cmake.dir/src/wave_player.c.i"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/danieva/cmpt433/work/as3/audio_cmake/app/src/wave_player.c > CMakeFiles/wave_player_cmake.dir/src/wave_player.c.i
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/adpop/cmpt433/work/BeatBox/app/src/wave_player.c > CMakeFiles/wave_player_cmake.dir/src/wave_player.c.i
 
 app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/wave_player_cmake.dir/src/wave_player.c.s"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/danieva/cmpt433/work/as3/audio_cmake/app/src/wave_player.c -o CMakeFiles/wave_player_cmake.dir/src/wave_player.c.s
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/arm-linux-gnueabihf-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/adpop/cmpt433/work/BeatBox/app/src/wave_player.c -o CMakeFiles/wave_player_cmake.dir/src/wave_player.c.s
 
 # Object files for target wave_player_cmake
 wave_player_cmake_OBJECTS = \
@@ -115,12 +115,12 @@ app/wave_player_cmake: app/CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o
 app/wave_player_cmake: app/CMakeFiles/wave_player_cmake.dir/build.make
 app/wave_player_cmake: hal/libhal.a
 app/wave_player_cmake: app/CMakeFiles/wave_player_cmake.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/danieva/cmpt433/work/as3/audio_cmake/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable wave_player_cmake"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/wave_player_cmake.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adpop/cmpt433/work/BeatBox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable wave_player_cmake"
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/wave_player_cmake.dir/link.txt --verbose=$(VERBOSE)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying ARM executable to public NFS directory"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && /usr/bin/cmake -E copy /home/danieva/cmpt433/work/as3/audio_cmake/build/app/wave_player_cmake ~/cmpt433/public/myApps/wave_player_cmake
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/cmake -E copy /home/adpop/cmpt433/work/BeatBox/build/app/wave_player_cmake ~/cmpt433/public/myApps/wave_player_cmake
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold "Copying WAVE files to public NFS directory"
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && /usr/bin/cmake -E copy_directory /home/danieva/cmpt433/work/as3/audio_cmake/wave-files ~/cmpt433/public/myApps/wave-files
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && /usr/bin/cmake -E copy_directory /home/adpop/cmpt433/work/BeatBox/wave-files ~/cmpt433/public/myApps/wave-files
 
 # Rule to build all files generated by this target.
 app/CMakeFiles/wave_player_cmake.dir/build: app/wave_player_cmake
@@ -128,10 +128,10 @@ app/CMakeFiles/wave_player_cmake.dir/build: app/wave_player_cmake
 .PHONY : app/CMakeFiles/wave_player_cmake.dir/build
 
 app/CMakeFiles/wave_player_cmake.dir/clean:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build/app && $(CMAKE_COMMAND) -P CMakeFiles/wave_player_cmake.dir/cmake_clean.cmake
+	cd /home/adpop/cmpt433/work/BeatBox/build/app && $(CMAKE_COMMAND) -P CMakeFiles/wave_player_cmake.dir/cmake_clean.cmake
 .PHONY : app/CMakeFiles/wave_player_cmake.dir/clean
 
 app/CMakeFiles/wave_player_cmake.dir/depend:
-	cd /home/danieva/cmpt433/work/as3/audio_cmake/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/danieva/cmpt433/work/as3/audio_cmake /home/danieva/cmpt433/work/as3/audio_cmake/app /home/danieva/cmpt433/work/as3/audio_cmake/build /home/danieva/cmpt433/work/as3/audio_cmake/build/app /home/danieva/cmpt433/work/as3/audio_cmake/build/app/CMakeFiles/wave_player_cmake.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/adpop/cmpt433/work/BeatBox/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/adpop/cmpt433/work/BeatBox /home/adpop/cmpt433/work/BeatBox/app /home/adpop/cmpt433/work/BeatBox/build /home/adpop/cmpt433/work/BeatBox/build/app /home/adpop/cmpt433/work/BeatBox/build/app/CMakeFiles/wave_player_cmake.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : app/CMakeFiles/wave_player_cmake.dir/depend
 
