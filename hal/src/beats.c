@@ -89,10 +89,12 @@ void* playMode(){
             last_response = 0; 
         }
 
+        // cycle beats back to the beginning 
         if(mode > 2){
             mode = 0; 
         }
 
+        // creates thread for chosen beat
         if(noThread){
             if(mode == 0){
                 prevMode = 0; 
@@ -108,7 +110,7 @@ void* playMode(){
             }
         }
 
-        // cancel thread to create a new one 
+        // cancel old thread to create a new one 
         if(!noThread && (prevMode != mode)){
             if(prevMode != 0){
                 pthread_cancel(mpid); 

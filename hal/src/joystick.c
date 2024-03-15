@@ -126,10 +126,9 @@ void* joystickController(){
                 pthread_mutex_unlock(&bpmMutex); 
                 break; 
             case 5: 
-                printf("Joystick reads center\n");
                 break; 
         }
-        sleepForMs(300);
+        sleepForMs(100);
     }
 }
 
