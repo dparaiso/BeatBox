@@ -23,14 +23,12 @@ void* Txt_startDisplay() {
         int beatMode = 0;
         //TODO: bpm
         int bpm = 0;
-        //TODO: volume
         int vol = AudioMixer_getVolume();
-        //TODO: playback buffer samples
         Period_statistics_t bStats;
         Period_getStatisticsAndClear(PERIOD_EVENT_SAMPLE_BUFFER, &bStats);
         //TODO: accel samples 
         Period_statistics_t aStats;
-        Period_getStatisticsAndClear(PERIOD_EVENT_SAMPLE_BUFFER, &aStats);
+        Period_getStatisticsAndClear(PERIOD_EVENT_SAMPLE_ACCEL, &aStats);
 
         char line1 = "M%d %dbpm vol:%d Audio[%f, %f] avg %f/%d Accel[%f, %f] avg %f/%d";
         printf(line1, beatMode, bpm, vol, bStats.minPeriodInMs, bStats.maxPeriodInMs, bStats.avgPeriodInMs, bStats.numSamples, aStats.minPeriodInMs, aStats.maxPeriodInMs, aStats.avgPeriodInMs, aStats.numSamples);
