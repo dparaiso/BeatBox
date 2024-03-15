@@ -12,5 +12,7 @@ void initializeSounds();
 void noDrumBeat();
 void standardRockBeat(int bpm);
 void otherBeat(int bpm);
+Beats_BeatIndex getActive();
+int getBpm(Beats_BeatIndex index);
 
 #endif

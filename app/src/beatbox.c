@@ -14,7 +14,7 @@ int main(){
     AudioMixer_init(); 
     joystick_init();
     Txt_init();
-    UDP_init();
+    // UDP_init();
 
     while(1){
         // standardRockBeat(120);

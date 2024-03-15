@@ -8,6 +8,8 @@
 #include <stdbool.h>
 #include <ctype.h>
 #include "udpListener.h"
+#include "hal/audio_mixer.h"
+#include "hal/beats.h"
 
 pthread_t tid; 
 char lastBuff [BUFFER_SIZE];
@@ -31,33 +33,101 @@ static int UDP_receiveAndConnect(int sockId, char* buff, struct sockaddr_in clie
   return bytesRead;
 }
 
-static void UDP_stopMsg(char* msg) {
+//TODO: not complete nor tested
+void UDP_cycleBeat(char* recvMsg, char* msg, int len) {
+  Beats_BeatIndex active = getActive();
+  if(active >= NUM_BEATS) {
+    snprintf(msg, "error: beat not cycled", BUFFER_SIZE);
+    return;
+  }
+
+  switch (active)
+  {
+  case BEATS_NO_DRUM_BEAT:
+    standardRockBeat(120); 
+    break;
+  
+  case BEATS_STANDARD_ROCK_BEAT:
+    otherBeat(120);
+    break;
+  case BEATS_OTHER_BEAT:
+    noDrumBeat();
+    break;
+  default:
+    snprintf(msg, "error: beat not cycled", BUFFER_SIZE);
+    return;
+  }
+
+  snprintf(msg, "beat cycled", BUFFER_SIZE);
+}
+
+
+//TODO: not tested
+void UDP_setVolume(char* recvMsg, char* msg, int len) {
+  char* recvTok = strtok(recvMsg," ");
+  recvTok = strtok(NULL," ");
+  recvTok = strtok(NULL," ");
+  if(recvTok != NULL) {
+    int newVol = (int) strtol(recvTok, NULL, 10);
+    AudioMixer_setVolume(newVol);
+    snprintf(msg, "volume set", BUFFER_SIZE);
+  }
+  else {
+    snprintf(msg, "error: volume not changed", BUFFER_SIZE);
+  }
+}
+
+
+//TODO: not complete
+void UDP_setBpm(char* recvMsg, char* msg, int len) {
+  char* recvTok = strtok(recvMsg," ");
+  recvTok = strtok(NULL," ");
+  recvTok = strtok(NULL," ");
+  if(recvTok != NULL) {
+    int newVol = (int) strtol(recvTok, NULL, 10);
+    
+    snprintf(msg, "bpm set", BUFFER_SIZE);
+  }
+  else {
+    snprintf(msg, "error: bpm not changed", BUFFER_SIZE);
+  }
+}
+
+//TODO: not complete
+void UDP_playBeat(char* recvMsg, char* msg, int len) {
+  
+}
+
+void UDP_stopProgram(char* recvMsg, char* msg, int len) {
   char newMsg[] = "Program terminating\n\n";
   strncpy(msg, newMsg, strlen(newMsg)+1);
 }
 
 void UDP_parseMessage(char* buff, int bytesRead, char* msg) { 
-  char* possibleCommands[] = {"cycle_beat", "volume", "play beat", "stop"};
+  char* possibleCommands[] = {"cycle_beat", "volume", "bpm", "play beat", "stop"};
   char recvMsg[bytesRead];
   for(int i = 0; i < bytesRead; i++) {
     recvMsg[i] = tolower(buff[i]);
   }
-  // if(strstr(recvMsg, possibleCommands[0]) != NULL) {
-  //   UDP_cycleBeat(recvMsg, msg);
-  // }
-  // else if(strstr(recvMsg, possibleCommands[1]) != NULL) {
-  //   UDP_setVolume(recvMsg, msg);
-  // }
-  // else if(strstr(recvMsg, possibleCommands[2]) != NULL) {
-  //   UDP_playBeat(recvMsg, msg);
-  // }
-  // else if(strstr(recvMsg, possibleCommands[3]) != NULL) {
-  //   UDP_stopProgram(recvMsg, msg);
-  // }               
-  // else {
-  //   char newMsg[] = "unknown command\n\n"; 
-  //   strncpy(msg, newMsg, strlen(newMsg)+1);
-  // }
+  if(strstr(recvMsg, possibleCommands[0]) != NULL) {
+    UDP_cycleBeat(recvMsg, msg, bytesRead);
+  }
+  else if(strstr(recvMsg, possibleCommands[1]) != NULL) {
+    UDP_setVolume(recvMsg, msg, bytesRead);
+  }
+  else if(strstr(recvMsg, possibleCommands[2]) != NULL) {
+    UDP_setBpm(recvMsg, msg, bytesRead);
+  }
+  else if(strstr(recvMsg, possibleCommands[3]) != NULL) {
+    UDP_playBeat(recvMsg, msg, bytesRead);
+  }
+  else if(strstr(recvMsg, possibleCommands[4]) != NULL) {
+    UDP_stopProgram(recvMsg, msg, bytesRead);
+  }               
+  else {
+    char newMsg[] = "unknown command\n\n"; 
+    strncpy(msg, newMsg, strlen(newMsg)+1);
+  }
 }
 
 static void UDP_parseAndSend(int sockId, char* buff, int bytesRead) {
