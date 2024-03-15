@@ -6,6 +6,7 @@
 #include "hal/timer.h"
 #include "periodTimer.h"
 #include "hal/audio_mixer.h"
+#include "hal/beats.h"
 
 static pthread_t pid; 
 
@@ -18,11 +19,18 @@ void Txt_cleanup() {
 }
 
 void* Txt_startDisplay() {
+    long long secondAhead;
     while(true) {
+        secondAhead = getTimeInMs() + 1000; 
+
         //TODO: beat mode
-        int beatMode = 0;
+        int beatMode = getActive();
+        if(beatMode >= NUM_BEATS) {
+            perror("Error: Active beat was not found\n");
+            return;
+        }
         //TODO: bpm
-        int bpm = 0;
+        int bpm = getBpm(beatMode);
         int vol = AudioMixer_getVolume();
         Period_statistics_t bStats;
         Period_getStatisticsAndClear(PERIOD_EVENT_SAMPLE_BUFFER, &bStats);
@@ -32,5 +40,8 @@ void* Txt_startDisplay() {
 
         char line1[] = "M%d %dbpm vol:%d Audio[%f, %f] avg %f/%d Accel[%f, %f] avg %f/%d";
         printf(line1, beatMode, bpm, vol, bStats.minPeriodInMs, bStats.maxPeriodInMs, bStats.avgPeriodInMs, bStats.numSamples, aStats.minPeriodInMs, aStats.maxPeriodInMs, aStats.avgPeriodInMs, aStats.numSamples);
+        if(secondAhead - getTimeInMs() > 0) {
+           sleepForMs(secondAhead - getTimeInMs()); 
+        }
     }
 }
