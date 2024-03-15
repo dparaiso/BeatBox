@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/danieva/cmpt433/work/as3/audio_cmake/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/hal/include -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/include -g -Wall -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/audio_mixer.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/audio_mixer.c",
+  "file": "/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/audio_mixer.c"
+},
+{
+  "directory": "/home/danieva/cmpt433/work/as3/audio_cmake/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/hal/include -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/include -g -Wall -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/beats.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/beats.c",
+  "file": "/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/beats.c"
+},
+{
+  "directory": "/home/danieva/cmpt433/work/as3/audio_cmake/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/hal/include -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/include -g -Wall -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/joystick.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/joystick.c",
+  "file": "/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/joystick.c"
+},
+{
+  "directory": "/home/danieva/cmpt433/work/as3/audio_cmake/build/hal",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/hal/include -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/include -g -Wall -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/hal.dir/src/timer.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/hal/src/timer.c",
+  "file": "/home/danieva/cmpt433/work/as3/audio_cmake/hal/src/timer.c"
+},
+{
+  "directory": "/home/danieva/cmpt433/work/as3/audio_cmake/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/as3/audio_cmake/app/include -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/include -g -Wall -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/wave_player_cmake.dir/src/beatbox.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/app/src/beatbox.c",
+  "file": "/home/danieva/cmpt433/work/as3/audio_cmake/app/src/beatbox.c"
+},
+{
+  "directory": "/home/danieva/cmpt433/work/as3/audio_cmake/build/app",
+  "command": "/usr/bin/arm-linux-gnueabihf-gcc  -I/home/danieva/cmpt433/work/as3/audio_cmake/app/include -I/home/danieva/cmpt433/work/as3/audio_cmake/hal/include -g -Wall -Wpedantic -Wextra -fdiagnostics-color -fsanitize=address -std=gnu11 -o CMakeFiles/wave_player_cmake.dir/src/wave_player.c.o -c /home/danieva/cmpt433/work/as3/audio_cmake/app/src/wave_player.c",
+  "file": "/home/danieva/cmpt433/work/as3/audio_cmake/app/src/wave_player.c"
+}
+]

@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../hal/include/hal/audio_mixer.h
+
+../hal/include/hal/beats.h
+
+../hal/include/hal/joystick.h
+stdbool.h
+-
+stdio.h
+-
+stdlib.h
+-
+pthread.h
+-
+
+../hal/include/hal/timer.h
+time.h
+-
+
+/home/danieva/cmpt433/work/as3/audio_cmake/app/src/beatbox.c
+stdio.h
+-
+hal/audio_mixer.h
+/home/danieva/cmpt433/work/as3/audio_cmake/app/src/hal/audio_mixer.h
+hal/timer.h
+/home/danieva/cmpt433/work/as3/audio_cmake/app/src/hal/timer.h
+hal/beats.h
+/home/danieva/cmpt433/work/as3/audio_cmake/app/src/hal/beats.h
+hal/joystick.h
+/home/danieva/cmpt433/work/as3/audio_cmake/app/src/hal/joystick.h
+

@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "pthread.h": "c"
+        "pthread.h": "c",
+        "beats.h": "c"
     }, 
     "cmake.configureOnOpen": true
 }
