@@ -51,82 +51,87 @@ static int UDP_receiveAndConnect(int sockId, char* buff, struct sockaddr_in clie
   return bytesRead;
 }
 
-//TODO: not complete nor tested
-void UDP_cycleBeat(char* recvMsg, char* msg, int len) {
-  
+void UDP_setBeat(char* recvMsg, char* msg) {
   char* recvTok = strtok(recvMsg," ");
   recvTok = strtok(NULL," ");
   if(recvTok != NULL) {
     int newMode = (int) strtol(recvTok, NULL, 10);
+    if(newMode >= NUM_BEATS) {
+      snprintf(msg, BUFFER_SIZE, "error: choose beat mode between 0 and 2\n");  
+      return;
+    }
     setMode(newMode);
-    snprintf(msg, BUFFER_SIZE, "beat changed");
+    snprintf(msg, BUFFER_SIZE, "success: beat changed\n");
   }
   else {
-    snprintf(msg, BUFFER_SIZE, "error: beat not changed");
+    snprintf(msg, BUFFER_SIZE, "error: malformed expression\n");
   }
 }
 
-
-//TODO: not tested
-void UDP_setVolume(char* recvMsg, char* msg, int len) {
+void UDP_setVolume(char* recvMsg, char* msg) {
   char* recvTok = strtok(recvMsg," ");
   recvTok = strtok(NULL," ");
   if(recvTok != NULL) {
     int newVol = (int) strtol(recvTok, NULL, 10);
+    if(newVol > 100 || newVol < 0) {
+      snprintf(msg, BUFFER_SIZE, "error: volume must be between 0 and 100\n");  
+      return;
+    }
     AudioMixer_setVolume(newVol);
-    snprintf(msg, BUFFER_SIZE, "volume set");
+    snprintf(msg, BUFFER_SIZE, "success: volume set\n");
   }
   else {
-    snprintf(msg, BUFFER_SIZE, "error: volume not changed");
+    snprintf(msg, BUFFER_SIZE, "error: malformed expression\n");
   }
 }
 
-
-//TODO: not complete
-void UDP_setBpm(char* recvMsg, char* msg, int len) {
+void UDP_setBpm(char* recvMsg, char* msg) {
   char* recvTok = strtok(recvMsg," ");
   recvTok = strtok(NULL," ");
-  recvTok = strtok(NULL," ");
   if(recvTok != NULL) {
-    int newVol = (int) strtol(recvTok, NULL, 10);
-    
-    snprintf(msg, BUFFER_SIZE, "bpm set");
+    int newBpm = (int) strtol(recvTok, NULL, 10);
+    if(newBpm > 300 || newBpm < 40) {
+      snprintf(msg, BUFFER_SIZE, "error: bpm must be between 40 and 300\n");
+      return;
+    }
+    setBpm(newBpm);
+    snprintf(msg, BUFFER_SIZE, "success: bpm set\n");
   }
   else {
-    snprintf(msg, BUFFER_SIZE, "error: bpm not changed");
+    snprintf(msg, BUFFER_SIZE, "error: malformed expression\n");
   }
 }
 
 //TODO: not complete
-void UDP_playBeat(char* recvMsg, char* msg, int len) {
+void UDP_playSound(char* recvMsg, char* msg) {
   
 }
 
-void UDP_stopProgram(char* recvMsg, char* msg, int len) {
+void UDP_stopProgram(char* msg) {
   char newMsg[] = "Program terminating\n\n";
   strncpy(msg, newMsg, strlen(newMsg)+1);
 }
 
 void UDP_parseMessage(char* buff, int bytesRead, char* msg) { 
-  char* possibleCommands[] = {"cycle_beat", "volume", "bpm", "play beat", "stop"};
+  char* possibleCommands[] = {"set_beat", "set_vol", "set_bpm", "play_sound", "stop"};
   char recvMsg[bytesRead];
   for(int i = 0; i < bytesRead; i++) {
     recvMsg[i] = tolower(buff[i]);
   }
   if(strstr(recvMsg, possibleCommands[0]) != NULL) {
-    UDP_cycleBeat(recvMsg, msg, bytesRead);
+    UDP_setBeat(recvMsg, msg);
   }
   else if(strstr(recvMsg, possibleCommands[1]) != NULL) {
-    UDP_setVolume(recvMsg, msg, bytesRead);
+    UDP_setVolume(recvMsg, msg);
   }
   else if(strstr(recvMsg, possibleCommands[2]) != NULL) {
-    UDP_setBpm(recvMsg, msg, bytesRead);
+    UDP_setBpm(recvMsg, msg);
   }
   else if(strstr(recvMsg, possibleCommands[3]) != NULL) {
-    UDP_playBeat(recvMsg, msg, bytesRead);
+    UDP_playSound(recvMsg, msg);
   }
   else if(strstr(recvMsg, possibleCommands[4]) != NULL) {
-    UDP_stopProgram(recvMsg, msg, bytesRead);
+    UDP_stopProgram(msg);
   }               
   else {
     char newMsg[] = "unknown command\n\n"; 

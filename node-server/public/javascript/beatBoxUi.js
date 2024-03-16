@@ -10,7 +10,7 @@ $(document).ready(() => {
         else {
             $('#volLvl').val(100);
         }
-        sendCommand("volume " + $('#volLvl').val());
+        sendCommand("set_vol " + $('#volLvl').val());
     });
     $('#btnVolDown').click(() => {
         var volLvl = Number($('#volLvl').val());
@@ -20,7 +20,7 @@ $(document).ready(() => {
         else {
             $('#volLvl').val(0);
         }
-        sendCommand("volume " + $('#volLvl').val());
+        sendCommand("set_vol " + $('#volLvl').val());
     })
 });
 
