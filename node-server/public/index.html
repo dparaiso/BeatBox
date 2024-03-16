@@ -12,17 +12,11 @@
 		<div id='messages'></div>
 		
         <h2>Current drum beat mode is: </h2>
+		<input id="current-mode" value="No Drum"></input>
 		<form id='beat-mode-form' >
 			<input type="button" id="btnNoDrum" value="No Drum"/>
 			<input type="button" id="btnStandardDrum" value="Standard Rock Beat"/>
 			<input type="button" id="btnOtherDrum" value="Other Beat"/>
-		</form>
-
-        <h2>BPM</h2>
-        <form id='bpm-form' >
-			<input type="button" id="btnBpmDown" value="-"/>
-            <input type="text" readonly id="bpm" value="120" size="3" name="BPM">
-			<input type="button" id="btnBpmUp" value="+"/>
 		</form>
 
 		<h2>Volume</h2>
@@ -30,6 +24,13 @@
 			<input type="button" id="btnVolDown" value="-"/>
             <input type="text" readonly id="volume" value="80" size="3" name="Volume">
 			<input type="button" id="btnVolUp" value="+"/>
+		</form>
+
+		<h2>BPM</h2>
+        <form id='bpm-form' >
+			<input type="button" id="btnBpmDown" value="-"/>
+            <input type="text" readonly id="bpm" value="120" size="3" name="BPM">
+			<input type="button" id="btnBpmUp" value="+"/>
 		</form>
 
         <h2>Play Drum Sounds </h2>

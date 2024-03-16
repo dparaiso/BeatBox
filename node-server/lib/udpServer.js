@@ -12,7 +12,7 @@ var dgram = require('dgram');
 
 exports.listen = (server) => {
 	io = socketio.listen(server);
-	io.set('log level', 3);
+	io.set('log level', 1);
 	
 	io.sockets.on('connection', function(socket) {
 		parseMessages(socket);
