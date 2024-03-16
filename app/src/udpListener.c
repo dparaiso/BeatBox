@@ -35,10 +35,10 @@ bool getPressedX(){
   return pressedX; 
 }
 bool getPressedY(){
-  return pressedX; 
+  return pressedY; 
 }
 bool getPressedZ(){
-  return pressedX; 
+  return pressedZ; 
 }
 pthread_t UDP_init() {
   setBpm(120);
