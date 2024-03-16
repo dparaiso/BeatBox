@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "pthread.h": "c",
+        "beats.h": "c",
+        "stdbool.h": "c",
+        "timer.h": "c"
+    }, 
+    "cmake.configureOnOpen": true
+}

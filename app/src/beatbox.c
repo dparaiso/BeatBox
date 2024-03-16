@@ -25,5 +25,6 @@ int main(){
     joystick_cleanup();
     AudioMixer_cleanup();
     Period_cleanup();
+    freeSounds(); 
     return 0; 
 }

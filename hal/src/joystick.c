@@ -1,7 +1,10 @@
 #include "hal/joystick.h"
 #include "hal/timer.h"
+#include "hal/beats.h"
 
-static pthread_t jpid; 
+static pthread_t jpid, modepid; 
+static pthread_mutex_t bpmMutex = PTHREAD_MUTEX_INITIALIZER; 
+int bpm = 120; 
 
 void joystick_init(void) {
     runCommand(UP);
@@ -11,12 +14,22 @@ void joystick_init(void) {
     runCommand(CENTER); 
 
     // launch joystick thread 
-    pthread_create(&jpid, NULL, joystickController, NULL); 
+    pthread_create(&jpid, NULL, &joystickController, NULL);
+    beatMode_init(); 
 }
 
 void joystick_cleanup(){
+    beatMode_cleanup(); 
     pthread_cancel(jpid); 
     pthread_join(jpid, NULL); 
+}
+void beatMode_init(){
+    pthread_create(&modepid, NULL, &playMode, NULL); 
+}
+
+void beatMode_cleanup(){
+    cancelThread(); 
+    pthread_join(modepid, NULL); 
 }
 
 int readFromFileToScreen(char *fileName){
@@ -77,7 +90,6 @@ int response(void){
 }
 
 void* joystickController(){
-    int bpm = 120; 
     int vol = 80; 
     int beatMode = 0;
     AudioMixer_setVolume(vol);
@@ -100,34 +112,29 @@ void* joystickController(){
                 sleepForMs(200);
                 break; 
             case 3: // left
+                pthread_mutex_lock(&bpmMutex); 
                 bpm -= 5; 
                 if(bpm < 40){
                     bpm = 40;
                 }
+                pthread_mutex_unlock(&bpmMutex); 
                 break;  
             case 4: // right
+                pthread_mutex_lock(&bpmMutex); 
                 bpm +=5; 
                 if(bpm > 300){
                     bpm = 300; 
                 }
+                pthread_mutex_unlock(&bpmMutex); 
                 break; 
-            case 5: // center
-                beatMode++; 
-                if(beatMode > 2){
-                    beatMode = 0; 
-                }
-                
+            case 5: 
                 break; 
         }
-
-        // play mode and beat 
-        if(beatMode == 0){
-            noDrumBeat(); 
-        }else if(beatMode == 1){
-            standardRockBeat(bpm); 
-        }else{
-            otherBeat(bpm); 
-        }
+        sleepForMs(100);
     }
+}
+
+int getBpm(){
+    return bpm; 
 }
 

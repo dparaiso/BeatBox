@@ -21,10 +21,12 @@
 
 void joystick_init(void);
 void joystick_cleanup();
+void beatMode_init();
+void beatMode_cleanup(); 
 int readFromFileToScreen(char *fileName);
 void runCommand(char* command);
 int response(void);
 void* joystickController();
-
+int getBpm();
 
 #endif
