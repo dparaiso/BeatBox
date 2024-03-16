@@ -145,22 +145,61 @@ void* playMode(){
     return NULL; 
 }
 
+
 void* playAccelX(){
+    
+    bool negative = (readX() < 0);
+    bool prevStateNegative = negative;
+    bool finished = false; 
+
     while(1){
-        // printf("outxh: %x\n", (unsigned int)readI2cReg(OUT_X_H));
-        // printf("outxl: %x\n", (unsigned int)readI2cReg(OUT_X_H));
+        sleepForMs(150); 
+        negative = (readX() < 0);
+        if(negative != prevStateNegative || getPressedX()){
+            if(!finished){
+                AudioMixer_queueSound(&wavSounds[0]);
+                finished = true; 
+            }
+        }else{
+            finished = false; 
+        }
     }
 }
 
 void* playAccelY(){
+    bool negative = (readY() < 0);
+    bool prevStateNegative = negative;
+    bool finished = false; 
     while(1){
-
+        sleepForMs(150); 
+        // printf("%f\n", readY());
+        negative = (readY() < 0);
+        if(negative != prevStateNegative || getPressedY()){
+            if(!finished){
+                AudioMixer_queueSound(&wavSounds[1]);
+                finished = true; 
+            }
+        }else{
+            finished = false; 
+        }
     }
 }
 
 void* playAccelZ(){
+    bool negative = (readZ() < 0);
+    bool prevStateNegative = negative;
+    bool finished = false; 
     while(1){
-
+        sleepForMs(150); 
+        negative = (readZ() < 0);
+        if(negative != prevStateNegative || getPressedZ()){
+            if(!finished){
+                AudioMixer_queueSound(&wavSounds[2]);
+                finished = true; 
+            }
+        }else{
+            finished = false; 
+        }
     }
 }
 

@@ -14,7 +14,7 @@ void accelerometer_init(){
 
     initI2cBus(); 
     // enable chip
-    writeI2cReg(CTRL_REG1, 0x39);
+    writeI2cReg(CTRL_REG1, 0x37);
     sleepForMs(5); 
     
     // create one thread for each directon
@@ -91,4 +91,39 @@ unsigned char readI2cReg(unsigned char regAddr)
 		exit(-1);
 	}
 	return value;
+}
+
+
+float readX(){
+    uint8_t buff[2]; 
+    int REG_XMSB = 0; 
+    int REG_XLSB = 1;
+    buff[REG_XMSB] = (unsigned int)readI2cReg(OUT_X_H);
+    buff[REG_XLSB] = (unsigned int)readI2cReg(OUT_X_L);
+    uint16_t floatx = ((buff[REG_XMSB] << 8) | buff[REG_XLSB]);
+	// printf("msb: %d\n", buff[REG_XMSB] << 8); 
+	// printf("lsb: %d\n", buff[REG_XLSB]); 
+	// printf("x: %f\n", (float)floatx);
+    return (float)floatx/100;
+}
+
+float readY(){
+	uint8_t buff[2]; 
+    int REG_YMSB = 0; 
+    int REG_YLSB = 1;
+    buff[REG_YLSB] = (unsigned int)readI2cReg(OUT_Y_L);
+    buff[REG_YMSB] = (unsigned int)readI2cReg(OUT_Y_H);
+    int16_t floatx = (buff[REG_YMSB] << 8) | buff[REG_YLSB]; 
+	// printf("y: %f\n", (float)floatx);
+    return (float)floatx/100;
+}
+
+float readZ(){
+	uint8_t buff[2]; 
+    int REG_ZMSB = 0; 
+    int REG_ZLSB = 1;
+    buff[REG_ZLSB] = (unsigned int)readI2cReg(OUT_Z_L);
+    buff[REG_ZMSB] = (unsigned int)readI2cReg(OUT_Z_H);
+    int16_t floatx = (buff[REG_ZMSB] << 8) | buff[REG_ZLSB]; 
+    return (float)floatx/100;
 }

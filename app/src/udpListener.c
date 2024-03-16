@@ -14,6 +14,9 @@
 static pthread_t tid; 
 int bpm;
 int mode;
+bool pressedX = false; 
+bool pressedY = false; 
+bool pressedZ = false; 
 
 void setBpm(int b) {
   bpm = b;
@@ -28,7 +31,15 @@ void setMode(int m) {
 int getMode() {
   return mode;
 }
-
+bool getPressedX(){
+  return pressedX; 
+}
+bool getPressedY(){
+  return pressedX; 
+}
+bool getPressedZ(){
+  return pressedX; 
+}
 pthread_t UDP_init() {
   setBpm(120);
   setMode(0);

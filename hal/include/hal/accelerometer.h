@@ -9,6 +9,8 @@
 #include <linux/i2c-dev.h>
 #include <pthread.h>
 #include <stdbool.h>
+#include <stdint.h>
+
 
 #define i2c_config1 "config-pin P9_18 i2c"
 #define i2c_config2 "config-pin P9_17 i2c"
@@ -34,5 +36,7 @@ void accelerometer_cleanup();
 void initI2cBus();
 void writeI2cReg(unsigned char regAddr, unsigned char value);
 unsigned char readI2cReg(unsigned char regAddr);
-
+float readX();
+float readY();
+float readZ();
 #endif

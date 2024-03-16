@@ -18,15 +18,14 @@ int main(){
     
     pthread_t tid = UDP_init();
     // standardRockBeat();
-
     joystick_init();
     
-    Txt_init();
+    // Txt_init();
     printf("this is: %ld\n", tid);
     pthread_join(tid, NULL);
     
 
-    Txt_cleanup();
+    // Txt_cleanup();
     joystick_cleanup();
     accelerometer_cleanup();
     AudioMixer_cleanup();
