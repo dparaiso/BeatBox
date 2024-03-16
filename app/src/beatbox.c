@@ -3,19 +3,21 @@
 #include "hal/timer.h"
 #include "hal/beats.h"
 #include "hal/joystick.h"
+#include "hal/accelerometer.h"
 
 int main(){
     // load in wav files that we want to play 
     initializeSounds(); 
     AudioMixer_init(); 
     joystick_init();
+    accelerometer_init(); 
     while(1){
-        // standardRockBeat(120);
-        // otherBeat(120); 
+       
 
     } 
     AudioMixer_cleanup(); 
     joystick_cleanup(); 
+    accelerometer_cleanup(); 
     freeSounds(); 
     return 0; 
 }

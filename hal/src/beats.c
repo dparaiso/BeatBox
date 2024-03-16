@@ -2,6 +2,7 @@
 #include "hal/beats.h"
 #include "hal/timer.h"
 #include "hal/joystick.h"
+#include "hal/accelerometer.h"
 #include <pthread.h> 
 #include <stdbool.h> 
 
@@ -126,4 +127,23 @@ void* playMode(){
         pthread_cancel(mpid); 
     }
     return NULL; 
+}
+
+void* playAccelX(){
+    while(1){
+        printf("outxh: %x\n", (unsigned int)readI2cReg(OUT_X_H));
+        printf("outxl: %x\n", (unsigned int)readI2cReg(OUT_X_H));
+    }
+}
+
+void* playAccelY(){
+    while(1){
+
+    }
+}
+
+void* playAccelZ(){
+    while(1){
+
+    }
 }

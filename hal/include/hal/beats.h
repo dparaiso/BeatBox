@@ -7,5 +7,8 @@ void cancelThread();
 void* standardRockBeat();
 void* otherBeat();
 void* playMode();
+void* playAccelX();
+void* playAccelY();
+void* playAccelZ();
 
 #endif
