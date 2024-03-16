@@ -12,7 +12,6 @@
 #include "hal/beats.h"
 
 pthread_t tid; 
-char lastBuff [BUFFER_SIZE];
 
 void UDP_init() {
   pthread_create(&tid, NULL, &UDP_startListening, NULL);
@@ -37,7 +36,7 @@ static int UDP_receiveAndConnect(int sockId, char* buff, struct sockaddr_in clie
 void UDP_cycleBeat(char* recvMsg, char* msg, int len) {
   Beats_BeatIndex active = getActive();
   if(active >= NUM_BEATS) {
-    snprintf(msg, "error: beat not cycled", BUFFER_SIZE);
+    snprintf(msg, BUFFER_SIZE, "error: beat not cycled");
     return;
   }
 
@@ -54,11 +53,11 @@ void UDP_cycleBeat(char* recvMsg, char* msg, int len) {
     noDrumBeat();
     break;
   default:
-    snprintf(msg, "error: beat not cycled", BUFFER_SIZE);
+    snprintf(msg, BUFFER_SIZE, "error: beat not cycled");
     return;
   }
 
-  snprintf(msg, "beat cycled", BUFFER_SIZE);
+  snprintf(msg, BUFFER_SIZE, "beat cycled");
 }
 
 
@@ -66,14 +65,13 @@ void UDP_cycleBeat(char* recvMsg, char* msg, int len) {
 void UDP_setVolume(char* recvMsg, char* msg, int len) {
   char* recvTok = strtok(recvMsg," ");
   recvTok = strtok(NULL," ");
-  recvTok = strtok(NULL," ");
   if(recvTok != NULL) {
     int newVol = (int) strtol(recvTok, NULL, 10);
     AudioMixer_setVolume(newVol);
-    snprintf(msg, "volume set", BUFFER_SIZE);
+    snprintf(msg, BUFFER_SIZE, "volume set");
   }
   else {
-    snprintf(msg, "error: volume not changed", BUFFER_SIZE);
+    snprintf(msg, BUFFER_SIZE, "error: volume not changed");
   }
 }
 
@@ -86,10 +84,10 @@ void UDP_setBpm(char* recvMsg, char* msg, int len) {
   if(recvTok != NULL) {
     int newVol = (int) strtol(recvTok, NULL, 10);
     
-    snprintf(msg, "bpm set", BUFFER_SIZE);
+    snprintf(msg, BUFFER_SIZE, "bpm set");
   }
   else {
-    snprintf(msg, "error: bpm not changed", BUFFER_SIZE);
+    snprintf(msg, BUFFER_SIZE, "error: bpm not changed");
   }
 }
 
@@ -133,9 +131,7 @@ void UDP_parseMessage(char* buff, int bytesRead, char* msg) {
 static void UDP_parseAndSend(int sockId, char* buff, int bytesRead) {
   char msg[BUFFER_SIZE];
   UDP_parseMessage(buff, bytesRead, msg);
-  strncpy(lastBuff, buff, bytesRead);
 
-  // strncpy(lastMsg, msg, strlen(msg)+1);
   send(sockId, msg, sizeof(char)*(strlen(msg)+1), 0);
 }
 
@@ -160,8 +156,6 @@ void* UDP_startListening() {
   char buff[BUFFER_SIZE];
   int clientLen = sizeof(client);
 
-  char defaultLastBuff[] = "";
-  strncpy(lastBuff, defaultLastBuff, strlen(defaultLastBuff));
   printf("Listening on port: %d\n", PORT);
   do {    
     int bytesRead = UDP_receiveAndConnect(sockId, buff, client, &clientLen);

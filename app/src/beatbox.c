@@ -12,14 +12,18 @@ int main(){
     Period_init();
     initializeSounds(); 
     AudioMixer_init(); 
+    standardRockBeat(120);
+
     joystick_init();
-    Txt_init();
-    // UDP_init();
+    
+    // Txt_init();
+    UDP_init();
 
-    while(1){
-        // standardRockBeat(120);
-        // otherBeat(120); 
+    
 
-    } 
+    // Txt_cleanup();
+    joystick_cleanup();
+    AudioMixer_cleanup();
+    Period_cleanup();
     return 0; 
 }
