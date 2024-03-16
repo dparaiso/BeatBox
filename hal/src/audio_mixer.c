@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <pthread.h>
 #include <limits.h>
+#include "../../app/include/periodTimer.h"
 #include <alloca.h> // needed for mixer
 
 
@@ -44,6 +45,13 @@ static pthread_t playbackThreadId;
 static pthread_mutex_t audioMutex = PTHREAD_MUTEX_INITIALIZER;
 
 static int volume = 0;
+
+void AudioMixer_stopPlayback() {
+	if(handle) {
+		snd_pcm_drop(handle);
+		snd_pcm_prepare(handle);
+	}
+}
 
 void AudioMixer_init(void)
 {
@@ -342,6 +350,7 @@ static void fillPlaybackBuffer(short *playbackbuffer, int size)
 
     }
     pthread_mutex_unlock(&audioMutex); 
+	Period_markEvent(PERIOD_EVENT_SAMPLE_BUFFER);
 
 }
 

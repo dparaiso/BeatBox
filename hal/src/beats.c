@@ -2,6 +2,7 @@
 #include "hal/beats.h"
 #include "hal/timer.h"
 #include "hal/joystick.h"
+#include "../../app/include/udpListener.h"
 #include <pthread.h> 
 #include <stdbool.h> 
 
@@ -14,6 +15,11 @@ static pthread_t mpid;
 static pthread_mutex_t bpmMutex = PTHREAD_MUTEX_INITIALIZER; 
 bool cancel = false; 
 
+
+//noDrumBeat is index 0, standardRockBeat is index 1, otherBeat is index 2
+static int bpmArray[] =  {0, 0, 0};
+static int activeArray[] =  {0, 0, 0};
+
 void initializeSounds(){
     for(int i = 0; i < 3; i++){
         AudioMixer_readWaveFileIntoMemory(files[i], &wavSounds[i] );
@@ -21,6 +27,10 @@ void initializeSounds(){
 }
 
 void freeSounds(){
+    bpmArray[BEATS_NO_DRUM_BEAT] = 0;
+    activeArray[BEATS_NO_DRUM_BEAT] = 1;
+    activeArray[BEATS_STANDARD_ROCK_BEAT] = 0;
+    activeArray[BEATS_OTHER_BEAT] = 0;
     for(int i = 0; i < 3; i++){
         AudioMixer_freeWaveFileData(&wavSounds[i] );
     }
@@ -48,7 +58,9 @@ void* standardRockBeat(){
         sleepForHalfBeat(bpm);      
     }
 
-
+    activeArray[BEATS_NO_DRUM_BEAT] = 0;
+    activeArray[BEATS_STANDARD_ROCK_BEAT] = 1;
+    activeArray[BEATS_OTHER_BEAT] = 0;
 }
 
 void* otherBeat(){
@@ -70,7 +82,9 @@ void* otherBeat(){
         AudioMixer_queueSound(&wavSounds[1]); //hi-hat
         sleepForHalfBeat(bpm);     
     }
-
+    activeArray[BEATS_NO_DRUM_BEAT] = 0;
+    activeArray[BEATS_STANDARD_ROCK_BEAT] = 0;
+    activeArray[BEATS_OTHER_BEAT] = 1;
 } 
 
 void* playMode(){
@@ -79,10 +93,11 @@ void* playMode(){
     bool noThread = true; 
     int last_response = 0; 
     while(!cancel){
+        mode = getMode();
         // check if joystick is pressed in center
         if(response() == 5){
             if(last_response < 1){
-                mode++;
+                setMode(mode+1);
                 last_response++; 
             }
         }else{
@@ -92,6 +107,7 @@ void* playMode(){
         // cycle beats back to the beginning 
         if(mode > 2){
             mode = 0; 
+            setMode(0);
         }
 
         // creates thread for chosen beat
@@ -126,4 +142,13 @@ void* playMode(){
         pthread_cancel(mpid); 
     }
     return NULL; 
+}
+
+Beats_BeatIndex getActive() {
+    for(int i = 0; i < NUM_BEATS; i++) {
+        if(activeArray[i]) {
+            return (Beats_BeatIndex)i;
+        }
+    }
+    return NUM_BEATS;
 }

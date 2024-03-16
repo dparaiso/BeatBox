@@ -1,21 +1,33 @@
 #include <stdio.h> 
+#include <pthread.h>
 #include "hal/audio_mixer.h"
 #include "hal/timer.h"
 #include "hal/beats.h"
 #include "hal/joystick.h"
+#include "text_display.h"
+#include "udpListener.h"
+#include "periodTimer.h"
 
 int main(){
     // load in wav files that we want to play 
+    Period_init();
     initializeSounds(); 
     AudioMixer_init(); 
-    joystick_init();
-    while(1){
-        // standardRockBeat(120);
-        // otherBeat(120); 
+    
+    pthread_t tid = UDP_init();
+    // standardRockBeat();
 
-    } 
-    AudioMixer_cleanup(); 
-    joystick_cleanup(); 
+    joystick_init();
+    
+    Txt_init();
+    printf("this is: %ld\n", tid);
+    pthread_join(tid, NULL);
+    
+
+    Txt_cleanup();
+    joystick_cleanup();
+    AudioMixer_cleanup();
+    Period_cleanup();
     freeSounds(); 
     return 0; 
 }
