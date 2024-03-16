@@ -12,12 +12,17 @@
 
 // Begins the background thread which listens to UDP PORT.
 // Thread finishes when stop is called
-void UDP_init();
+pthread_t UDP_init();
 
 // Listens to PORT for messages
 void* UDP_startListening();
 
 // Takes the received message in buff and populates msg with the correct response
 void UDP_parseMessage(char* buff, int bytesRead, char* msg);
+
+void setBpm(int b);
+int getBpm();
+void setMode(int m);
+int getMode();
 
 #endif

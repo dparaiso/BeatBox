@@ -11,15 +11,34 @@
 #include "hal/audio_mixer.h"
 #include "hal/beats.h"
 
-pthread_t tid; 
+static pthread_t tid; 
+int bpm;
+int mode;
 
-void UDP_init() {
+void setBpm(int b) {
+  bpm = b;
+}
+int getBpm() {
+  return bpm;
+}
+
+void setMode(int m) {
+  mode  = m;
+}
+int getMode() {
+  return mode;
+}
+
+pthread_t UDP_init() {
+  setBpm(120);
+  setMode(0);
   pthread_create(&tid, NULL, &UDP_startListening, NULL);
-  pthread_join(tid, NULL); 
+  return tid;
 } 
 
-void UDP_cleanup(pthread_t tid){
+void UDP_cleanup(){
     pthread_cancel(tid); 
+    pthread_join(tid, NULL); 
 }
 
 static int UDP_receiveAndConnect(int sockId, char* buff, struct sockaddr_in client, int* clientLen) {
@@ -34,30 +53,17 @@ static int UDP_receiveAndConnect(int sockId, char* buff, struct sockaddr_in clie
 
 //TODO: not complete nor tested
 void UDP_cycleBeat(char* recvMsg, char* msg, int len) {
-  Beats_BeatIndex active = getActive();
-  if(active >= NUM_BEATS) {
-    snprintf(msg, BUFFER_SIZE, "error: beat not cycled");
-    return;
-  }
-
-  switch (active)
-  {
-  case BEATS_NO_DRUM_BEAT:
-    standardRockBeat(120); 
-    break;
   
-  case BEATS_STANDARD_ROCK_BEAT:
-    otherBeat(120);
-    break;
-  case BEATS_OTHER_BEAT:
-    noDrumBeat();
-    break;
-  default:
-    snprintf(msg, BUFFER_SIZE, "error: beat not cycled");
-    return;
+  char* recvTok = strtok(recvMsg," ");
+  recvTok = strtok(NULL," ");
+  if(recvTok != NULL) {
+    int newMode = (int) strtol(recvTok, NULL, 10);
+    setMode(newMode);
+    snprintf(msg, BUFFER_SIZE, "beat changed");
   }
-
-  snprintf(msg, BUFFER_SIZE, "beat cycled");
+  else {
+    snprintf(msg, BUFFER_SIZE, "error: beat not changed");
+  }
 }
 
 
@@ -162,7 +168,7 @@ void* UDP_startListening() {
     UDP_parseAndSend(sockId, buff, bytesRead);
   }
   while(strcmp(buff, "stop") != 0);
-
+  printf("closing udp\n");
   close(sockId);
   return NULL;
 }

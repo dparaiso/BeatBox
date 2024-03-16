@@ -2,6 +2,7 @@
 #include "hal/beats.h"
 #include "hal/timer.h"
 #include "hal/joystick.h"
+#include "../../app/include/udpListener.h"
 #include <pthread.h> 
 #include <stdbool.h> 
 
@@ -57,8 +58,6 @@ void* standardRockBeat(){
         sleepForHalfBeat(bpm);      
     }
 
-
-    bpmArray[BEATS_STANDARD_ROCK_BEAT] = bpm;
     activeArray[BEATS_NO_DRUM_BEAT] = 0;
     activeArray[BEATS_STANDARD_ROCK_BEAT] = 1;
     activeArray[BEATS_OTHER_BEAT] = 0;
@@ -83,7 +82,9 @@ void* otherBeat(){
         AudioMixer_queueSound(&wavSounds[1]); //hi-hat
         sleepForHalfBeat(bpm);     
     }
-
+    activeArray[BEATS_NO_DRUM_BEAT] = 0;
+    activeArray[BEATS_STANDARD_ROCK_BEAT] = 0;
+    activeArray[BEATS_OTHER_BEAT] = 1;
 } 
 
 void* playMode(){
@@ -92,10 +93,11 @@ void* playMode(){
     bool noThread = true; 
     int last_response = 0; 
     while(!cancel){
+        mode = getMode();
         // check if joystick is pressed in center
         if(response() == 5){
             if(last_response < 1){
-                mode++;
+                setMode(mode+1);
                 last_response++; 
             }
         }else{
@@ -105,6 +107,7 @@ void* playMode(){
         // cycle beats back to the beginning 
         if(mode > 2){
             mode = 0; 
+            setMode(0);
         }
 
         // creates thread for chosen beat
@@ -139,10 +142,6 @@ void* playMode(){
         pthread_cancel(mpid); 
     }
     return NULL; 
-    bpmArray[BEATS_OTHER_BEAT] = bpm;
-    activeArray[BEATS_NO_DRUM_BEAT] = 0;
-    activeArray[BEATS_STANDARD_ROCK_BEAT] = 0;
-    activeArray[BEATS_OTHER_BEAT] = 1;
 }
 
 Beats_BeatIndex getActive() {
@@ -152,11 +151,4 @@ Beats_BeatIndex getActive() {
         }
     }
     return NUM_BEATS;
-}
-
-int getBpm(Beats_BeatIndex index) {
-    if(index >= NUM_BEATS) {
-        return NUM_BEATS;
-    }
-    return bpmArray[index];
 }

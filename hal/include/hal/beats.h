@@ -9,18 +9,12 @@ typedef enum Beats_BeatIndex_t {
 }Beats_BeatIndex;
 
 void initializeSounds();
-<<<<<<< HEAD
-void noDrumBeat();
-void standardRockBeat(int bpm);
-void otherBeat(int bpm);
+// void noDrumBeat();
 Beats_BeatIndex getActive();
-int getBpm(Beats_BeatIndex index);
-=======
 void freeSounds(); 
 void cancelThread(); 
 void* standardRockBeat();
 void* otherBeat();
 void* playMode();
->>>>>>> main
 
 #endif
