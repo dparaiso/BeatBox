@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>BeagleBone Beat-Box</title>
+    <link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon">
+	<!-- <link rel='stylesheet' href='/stylesheets/style.css'></link> -->
+</head>
+
+<body>
+	<div id='content'>
+		<h1>BeagleBone Beat-Box</h1>
+		<div id='messages'></div>
+		
+        <h2>Current drum beat mode is: </h2>
+		<form id='beat-mode-form' >
+			<input type="button" id="btnNoDrum" value="No Drum"/>
+			<input type="button" id="btnStandardDrum" value="Standard Rock Beat"/>
+			<input type="button" id="btnOtherDrum" value="Other Beat"/>
+		</form>
+
+        <h2>Volume</h2>
+        <form id='vol-form' >
+			<input type="button" id="btnVolDown" value="-"/>
+            <input type="text" readonly id="volLvl" value="80" size="3" name="Volume">
+			<input type="button" id="btnVolUp" value="+"/>
+		</form>
+
+        <h2>Play Drum Sounds </h2>
+        <form id='play-beat-form' >
+			<input type="button" id="btnPlaySnare" value="Snare"/>
+			<input type="button" id="btnPlayHiHat" value="Hi-hat"/>
+			<input type="button" id="btnPlayBass" value="Bass"/>
+		</form>
+
+        <h2>Controls </h2>
+        <input type="button" id="stopProgram" value="Stop Program"/>
+
+        <h2>Beatbox Status </h2>
+        <div>
+            <p>Device up for: </p>
+            <input type="text" readonly id="beatboxStatus" name="beatboxStatus">
+        </div>
+
+        <h2>Server Error</h2>
+        <div id="errorBox">
+            <p>Current Error:</p>
+        </div>
+        
+	</div>
+	
+    <script src='/socket.io/socket.io.js' type='text/javascript'></script>
+	<script src='http://code.jquery.com/jquery-1.8.0.min.js' type='text/javascript'></script>
+	<script src='javascript/beatBoxUi.js' type='text/javascript'></script>
+</body>
+</html>
