@@ -1,12 +1,17 @@
 var PORT = 8088;
 
 
-const http = require('http');
+const https = require('https');
 const path = require('path');
 const mime = require('mime');
 const fs   = require('fs');
 
-const server = http.createServer((req, res) => {
+const options = {
+	key: fs.readFileSync('./key.pem'),
+	cert: fs.readFileSync('./key-cert.pem'),
+  };
+
+const server = https.createServer(options, (req, res) => {
 	var filePath = "";
 	if (req.url != '/') {
 		filePath = './public' + req.url;

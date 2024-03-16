@@ -7,64 +7,87 @@ $(document).ready(() => {
     $('#current-mode').text("No Drum");
     $('#volume').val(80);
     $('#bpm').val(120);
+    $('#error').hide();
+
+    setInterval(function() {
+        sendCommand('info');
+    }, 500);
 
     $('#btnNoDrum').click(() => {
         sendCommand("set_beat 0");
-        $('#current-mode').text("No Drum");
     });
     $('#btnStandardDrum').click(() => {
         sendCommand("set_beat 1");
-        $('#current-mode').text("Standard Rock Beat");
     });
     $('#btnOtherDrum').click(() => {
         sendCommand("set_beat 2");
-        $('#current-mode').text("Other Beat");
     });
 
     $('#btnVolUp').click(() => {
         var volume = Number($('#volume').val());
         if(volume < 100-5) {
-            $('#volume').val(volume+5);
+            volume = volume + 5;
         }
         else {
-            $('#volume').val(100);
+            volume = 100;
         }
-        sendCommand("set_vol " + $('#volume').val());
+        sendCommand("set_vol " + volume);
     });
     $('#btnVolDown').click(() => {
         var volume = Number($('#volume').val());
         if(volume > 5) {
-            $('#volume').val(volume-5);
+            volume = volume-5;
         }
         else {
-            $('#volume').val(0);
+            volume = 0;
         }
-        sendCommand("set_vol " + $('#volume').val());
+        sendCommand("set_vol " + volume);
     });
 
     $('#btnBpmUp').click(() => {
         var bpm = Number($('#bpm').val());
         if(bpm < 300-5) {
-            $('#bpm').val(bpm+5);
+            bpm = bpm+5;
         }
         else {
-            $('#bpm').val(300);
+            bpm = 300;
         }
-        sendCommand("set_bpm " + $('#bpm').val());
+        sendCommand("set_bpm " + bpm);
     });
     $('#btnBpmDown').click(() => {
         var bpm = Number($('#bpm').val());
         if(bpm > 45) {
-            $('#bpm').val(bpm-5);
+            bpm = bpm-5;
         }
         else {
-            $('#bpm').val(40);
+           bpm = 40;
         }
-        sendCommand("set_bpm " + $('#bpm').val());
+        sendCommand("set_bpm " + bpm);
     });
 
     $('#stopProgram').click(() => {
         sendCommand("stop");
+    });
+
+    socket.on("beatBoxCommandReply", (reply) => {
+
+        reply = reply.split(" ");
+        if(reply[0] == "info:") {
+            $('#volume').val(reply[1]);
+            $('#bpm').val(reply[2]);
+            switch(reply[3]) {
+                case "0":
+                    $('#current-mode').text("No Drum");
+                    break;
+                case "1": 
+                    $('#current-mode').text("Standard Rock Beat");
+                    break;
+                case "2": 
+                    $('#current-mode').text("Other Beat");
+                    break;
+            }
+            $('#deviceUptime').text(reply[6] + ":" + reply[5] + ":" + reply[4] + " (H:M:S)");
+        }
     });
 });
 

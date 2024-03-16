@@ -122,7 +122,7 @@ void UDP_sendInfo(char* msg) {
     int sec = (int)uptime % 60;
     int min = ((int)uptime % 3600) / 60;
     int hr = (int)uptime / 3600;
-    snprintf(msg, BUFFER_SIZE, "%d %d %d %d %d %d", AudioMixer_getVolume(), getBpm(), getMode(), sec, min, hr);
+    snprintf(msg, BUFFER_SIZE, "info: %d %d %d %d %d %d", AudioMixer_getVolume(), getBpm(), getMode(), sec, min, hr);
 }
 
 void UDP_parseMessage(char* buff, int bytesRead, char* msg) { 
