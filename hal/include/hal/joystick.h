@@ -27,6 +27,5 @@ int readFromFileToScreen(char *fileName);
 void runCommand(char* command);
 int response(void);
 void* joystickController();
-int getBpm();
 
 #endif

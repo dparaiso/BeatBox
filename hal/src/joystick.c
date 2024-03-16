@@ -1,10 +1,11 @@
 #include "hal/joystick.h"
 #include "hal/timer.h"
 #include "hal/beats.h"
+#include "../../app/include/udpListener.h"
+#include "hal/audio_mixer.h"
 
 static pthread_t jpid, modepid; 
 static pthread_mutex_t bpmMutex = PTHREAD_MUTEX_INITIALIZER; 
-int bpm = 120; 
 
 void joystick_init(void) {
     runCommand(UP);
@@ -92,6 +93,7 @@ int response(void){
 void* joystickController(){
     int vol = 80; 
     int beatMode = 0;
+    int bpm = 0;
     AudioMixer_setVolume(vol);
     while(1){
         switch(response()){
@@ -101,6 +103,7 @@ void* joystickController(){
                     vol = 100; 
                 }
                 AudioMixer_setVolume(vol);
+                sleepForMs(200);
                 break; 
             case 2: // DOWN
                 vol = AudioMixer_getVolume() - 5; 
@@ -108,29 +111,32 @@ void* joystickController(){
                     vol = 0; 
                 }
                 AudioMixer_setVolume(vol);
+                sleepForMs(200);
                 break; 
             case 3: // left
                 pthread_mutex_lock(&bpmMutex); 
-                bpm -= 5; 
-                if(bpm < 40){
-                    bpm = 40;
+                bpm = getBpm();
+                if(bpm-5 < 40){
+                    setBpm(40);
+                }
+                else {
+                    setBpm(bpm-5);
                 }
                 pthread_mutex_unlock(&bpmMutex); 
                 break;  
             case 4: // right
                 pthread_mutex_lock(&bpmMutex); 
-                bpm +=5; 
-                if(bpm > 300){
-                    bpm = 300; 
+                bpm = getBpm();
+                if(bpm+5 > 300){
+                    setBpm(300);
+                }
+                else {
+                    setBpm(bpm+5);
                 }
                 pthread_mutex_unlock(&bpmMutex); 
                 break; 
         }
         sleepForMs(100);
     }
-}
-
-int getBpm(){
-    return bpm; 
 }
 
