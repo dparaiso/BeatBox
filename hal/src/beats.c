@@ -147,8 +147,8 @@ void* playMode(){
 
 void* playAccelX(){
     while(1){
-        printf("outxh: %x\n", (unsigned int)readI2cReg(OUT_X_H));
-        printf("outxl: %x\n", (unsigned int)readI2cReg(OUT_X_H));
+        // printf("outxh: %x\n", (unsigned int)readI2cReg(OUT_X_H));
+        // printf("outxl: %x\n", (unsigned int)readI2cReg(OUT_X_H));
     }
 }
 
