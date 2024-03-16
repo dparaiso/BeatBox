@@ -18,15 +18,22 @@
 			<input type="button" id="btnOtherDrum" value="Other Beat"/>
 		</form>
 
-        <h2>Volume</h2>
+        <h2>BPM</h2>
+        <form id='bpm-form' >
+			<input type="button" id="btnBpmDown" value="-"/>
+            <input type="text" readonly id="bpm" value="120" size="3" name="BPM">
+			<input type="button" id="btnBpmUp" value="+"/>
+		</form>
+
+		<h2>Volume</h2>
         <form id='vol-form' >
 			<input type="button" id="btnVolDown" value="-"/>
-            <input type="text" readonly id="volLvl" value="80" size="3" name="Volume">
+            <input type="text" readonly id="volume" value="80" size="3" name="Volume">
 			<input type="button" id="btnVolUp" value="+"/>
 		</form>
 
         <h2>Play Drum Sounds </h2>
-        <form id='play-beat-form' >
+        <form id='play-sound-form' >
 			<input type="button" id="btnPlaySnare" value="Snare"/>
 			<input type="button" id="btnPlayHiHat" value="Hi-hat"/>
 			<input type="button" id="btnPlayBass" value="Bass"/>
