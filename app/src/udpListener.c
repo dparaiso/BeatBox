@@ -12,6 +12,7 @@
 #include "hal/beats.h"
 
 static pthread_t tid; 
+static float uptime = 0;
 int bpm;
 int mode;
 
@@ -39,16 +40,6 @@ pthread_t UDP_init() {
 void UDP_cleanup(){
     pthread_cancel(tid); 
     pthread_join(tid, NULL); 
-}
-
-static int UDP_receiveAndConnect(int sockId, char* buff, struct sockaddr_in client, int* clientLen) {
-  int bytesRead = recvfrom(sockId, buff, BUFFER_SIZE-1, 0, (struct sockaddr*)&client, (socklen_t *) clientLen);
-  buff[bytesRead-1] = '\0';
-  if(connect(sockId, (struct sockaddr*)&client, *clientLen) == -1) {
-    perror("socket connect failed");
-    exit(EXIT_FAILURE);
-  }
-  return bytesRead;
 }
 
 void UDP_setBeat(char* recvMsg, char* msg) {
@@ -112,26 +103,47 @@ void UDP_stopProgram(char* msg) {
   strncpy(msg, newMsg, strlen(newMsg)+1);
 }
 
+void UDP_sendInfo(char* msg) {
+  FILE *fp = fopen("/proc/uptime", "r");
+    if (fp == NULL)
+    {
+        perror("Error opening file");
+        snprintf(msg, BUFFER_SIZE, "error: malformed expression\n");
+        return;
+    }
+    if (fscanf(fp, "%f", &uptime) < 1) {
+        fprintf(stderr, "Failed to read uptime\n");
+        fclose(fp);
+        snprintf(msg, BUFFER_SIZE, "error: malformed expression\n");
+        return;
+    }
+    fclose(fp);
+
+    int sec = (int)uptime % 60;
+    int min = ((int)uptime % 3600) / 60;
+    int hr = (int)uptime / 3600;
+    snprintf(msg, BUFFER_SIZE, "%d %d %d %d %d %d", AudioMixer_getVolume(), getBpm(), getMode(), sec, min, hr);
+}
+
 void UDP_parseMessage(char* buff, int bytesRead, char* msg) { 
-  char* possibleCommands[] = {"set_beat", "set_vol", "set_bpm", "play_sound", "stop"};
-  char recvMsg[bytesRead];
-  for(int i = 0; i < bytesRead; i++) {
-    recvMsg[i] = tolower(buff[i]);
+  char* possibleCommands[] = {"set_beat", "set_vol", "set_bpm", "play_sound", "stop", "info"}; 
+  if(strstr(buff, possibleCommands[0]) != NULL) {
+    UDP_setBeat(buff, msg);
   }
-  if(strstr(recvMsg, possibleCommands[0]) != NULL) {
-    UDP_setBeat(recvMsg, msg);
+  else if(strstr(buff, possibleCommands[1]) != NULL) {
+    UDP_setVolume(buff, msg);
   }
-  else if(strstr(recvMsg, possibleCommands[1]) != NULL) {
-    UDP_setVolume(recvMsg, msg);
+  else if(strstr(buff, possibleCommands[2]) != NULL) {
+    UDP_setBpm(buff, msg);
   }
-  else if(strstr(recvMsg, possibleCommands[2]) != NULL) {
-    UDP_setBpm(recvMsg, msg);
+  else if(strstr(buff, possibleCommands[3]) != NULL) {
+    UDP_playSound(buff, msg);
   }
-  else if(strstr(recvMsg, possibleCommands[3]) != NULL) {
-    UDP_playSound(recvMsg, msg);
-  }
-  else if(strstr(recvMsg, possibleCommands[4]) != NULL) {
+  else if(strstr(buff, possibleCommands[4]) != NULL) {
     UDP_stopProgram(msg);
+  }
+  else if(strstr(buff, possibleCommands[5]) != NULL) {
+    UDP_sendInfo(msg);
   }               
   else {
     char newMsg[] = "unknown command\n\n"; 
@@ -139,41 +151,53 @@ void UDP_parseMessage(char* buff, int bytesRead, char* msg) {
   }
 }
 
-static void UDP_parseAndSend(int sockId, char* buff, int bytesRead) {
-  char msg[BUFFER_SIZE];
-  UDP_parseMessage(buff, bytesRead, msg);
-  // clientLen = sizeof(client);
-  // sendto(sockId, msg, sizeof(char)*(strlen(msg)+1), 0, (struct sockaddr*)&client, clientLen);
-  send(sockId, msg, sizeof(char)*(strlen(msg)+1), 0);
-}
+// static int UDP_receiveAndConnect(int sockId, char* buff, struct sockaddr_in client, int clientLen) {
+//   int bytesRead = recvfrom(sockId, buff, BUFFER_SIZE-1, 0, (struct sockaddr*)&client, (socklen_t*) &clientLen);
+//   buff[bytesRead-1] = '\0';
+//   // if(connect(sockId, (struct sockaddr*)&client, *clientLen) == -1) {
+//   //   perror("socket connect failed");
+//   //   exit(EXIT_FAILURE);
+//   // }
+//   return bytesRead;
+// }
+
+// static void UDP_parseAndSend(int sockId, char* buff, int bytesRead, struct sockaddr_in client, int clientLen) {
+//   char msg[BUFFER_SIZE];
+//   UDP_parseMessage(buff, bytesRead, msg);
+//   clientLen = sizeof(client);
+//   sendto(sockId, msg, sizeof(char)*(strlen(msg)+1), 0, (struct sockaddr*)&client, clientLen);
+//   // send(sockId, msg, sizeof(char)*(strlen(msg)+1), 0);
+// }
 
 void* UDP_startListening() {
-  struct sockaddr_in addr;
   struct sockaddr_in client;
+  
+
   int sockId = socket(PF_INET, SOCK_DGRAM, 0);
   if(sockId < 0) {
     perror("socket failed");
     exit(EXIT_FAILURE);
   } 
 
-  addr.sin_family = AF_INET;
-  addr.sin_addr.s_addr = INADDR_ANY;
-  addr.sin_port = htons(PORT);
-
-  if(bind(sockId, (struct sockaddr*)&addr, sizeof(addr)) == -1) {
+  client.sin_family = AF_INET;
+  client.sin_addr.s_addr = INADDR_ANY;
+  client.sin_port = htons(PORT);
+  int clientLen = sizeof(client);
+  if(bind(sockId, (struct sockaddr*)&client, clientLen) == -1) {
     perror("socket bind failed");
     exit(EXIT_FAILURE);
   }
 
-  char buff[BUFFER_SIZE];
-  int clientLen = sizeof(client);
-
   printf("Listening on port: %d\n", PORT);
+  char buff[BUFFER_SIZE];
   do {    
-    int bytesRead = UDP_receiveAndConnect(sockId, buff, client, &clientLen);
-    UDP_parseAndSend(sockId, buff, bytesRead);
+    char msg[BUFFER_SIZE];
+    int bytesRead = recvfrom(sockId, buff, BUFFER_SIZE-1, 0, (struct sockaddr*)&client, (socklen_t*) &clientLen);
+    UDP_parseMessage(buff, bytesRead, msg);
+    clientLen = sizeof(client);
+    sendto(sockId, msg, sizeof(char)*(strlen(msg)+1), 0, (struct sockaddr*)&client, clientLen);
   }
-  while(strcmp(buff, "stop") != 0);
+  while(strstr(buff, "stop") == NULL);
   close(sockId);
   return NULL;
 }
