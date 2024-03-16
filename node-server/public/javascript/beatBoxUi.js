@@ -4,21 +4,21 @@ var socket = io.connect();
 
 $(document).ready(() => {
     //initial values
-    $('#current-mode').val("No Drum");
+    $('#current-mode').text("No Drum");
     $('#volume').val(80);
     $('#bpm').val(120);
 
     $('#btnNoDrum').click(() => {
         sendCommand("set_beat 0");
-        $('#current-mode').val("No Drum");
+        $('#current-mode').text("No Drum");
     });
     $('#btnStandardDrum').click(() => {
         sendCommand("set_beat 1");
-        $('#current-mode').val("Standard Rock Beat");
+        $('#current-mode').text("Standard Rock Beat");
     });
     $('#btnOtherDrum').click(() => {
         sendCommand("set_beat 2");
-        $('#current-mode').val("Other Beat");
+        $('#current-mode').text("Other Beat");
     });
 
     $('#btnVolUp').click(() => {
