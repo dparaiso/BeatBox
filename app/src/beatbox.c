@@ -19,12 +19,11 @@ int main(){
 
     joystick_init();
     
-    Txt_init();
-    printf("this is: %ld\n", tid);
+    // Txt_init();
     pthread_join(tid, NULL);
     
 
-    Txt_cleanup();
+    // Txt_cleanup();
     joystick_cleanup();
     AudioMixer_cleanup();
     Period_cleanup();

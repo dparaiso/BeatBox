@@ -142,14 +142,15 @@ void UDP_parseMessage(char* buff, int bytesRead, char* msg) {
 static void UDP_parseAndSend(int sockId, char* buff, int bytesRead) {
   char msg[BUFFER_SIZE];
   UDP_parseMessage(buff, bytesRead, msg);
-
+  // clientLen = sizeof(client);
+  // sendto(sockId, msg, sizeof(char)*(strlen(msg)+1), 0, (struct sockaddr*)&client, clientLen);
   send(sockId, msg, sizeof(char)*(strlen(msg)+1), 0);
 }
 
 void* UDP_startListening() {
   struct sockaddr_in addr;
   struct sockaddr_in client;
-  int sockId = socket(AF_INET, SOCK_DGRAM, 0);
+  int sockId = socket(PF_INET, SOCK_DGRAM, 0);
   if(sockId < 0) {
     perror("socket failed");
     exit(EXIT_FAILURE);
@@ -173,7 +174,6 @@ void* UDP_startListening() {
     UDP_parseAndSend(sockId, buff, bytesRead);
   }
   while(strcmp(buff, "stop") != 0);
-  printf("closing udp\n");
   close(sockId);
   return NULL;
 }
