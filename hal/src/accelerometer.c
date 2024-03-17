@@ -101,9 +101,9 @@ float readX(){
     int REG_XLSB = 1;
     buff[REG_XMSB] = (unsigned int)readI2cReg(OUT_X_H);
     buff[REG_XLSB] = (unsigned int)readI2cReg(OUT_X_L);
-    uint16_t floatx = ((buff[REG_XMSB] << 8) | buff[REG_XLSB]);
+    int16_t floatx = ((buff[REG_XMSB] << 8) | buff[REG_XLSB]);
     Period_markEvent(PERIOD_EVENT_SAMPLE_ACCEL);
-    return (float)floatx/1000;
+    return (float)floatx/100;
 
 }
 

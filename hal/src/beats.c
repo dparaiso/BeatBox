@@ -150,13 +150,13 @@ void* playMode(){
 
 void* playAccelX(){
     
-    bool negative = (readX() < 35);
+    bool negative = (readX() < -250 || readX() > 250);
     bool prevStateNegative = negative;
     bool finished = false; 
 
     while(1){
-        sleepForMs(200); 
-        negative = (readX() < 35);
+        sleepForMs(150); 
+        negative = (readX() < -250 || readX() > 250);
         if(negative != prevStateNegative || getPressedX()){
             if(!finished){
                 // printf("xSound\n");
@@ -171,12 +171,12 @@ void* playAccelX(){
 }
 
 void* playAccelY(){
-    bool negative = (readY() < -200 || readY() > 200);
+    bool negative = (readY() < -250 || readY() > 250);
     bool prevStateNegative = negative;
     bool finished = false; 
     while(1){
-        sleepForMs(200); 
-        negative = (readY() < -100 || readY() > 100);
+        sleepForMs(150); 
+        negative = (readY() < -250 || readY() > 250);
         if(negative != prevStateNegative || getPressedY()){
             if(!finished){
                 AudioMixer_queueSound(&wavSounds[1]);
@@ -197,7 +197,8 @@ void* playAccelZ(){
         sleepForMs(150); 
         negative = (readZ() < 0);
         if(negative != prevStateNegative || getPressedZ()){
-            if(!finished){
+            
+            if(!finished ){
                 AudioMixer_queueSound(&wavSounds[2]);
                 finished = true; 
                 setPressedZ(false);

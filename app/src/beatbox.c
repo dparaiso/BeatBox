@@ -10,7 +10,7 @@
 #include "periodTimer.h"
 
 int main(){
-    // load in wav files that we want to play 
+    // load in wav files that we want to play and initialize threads
     Period_init();
     initializeSounds(); 
     AudioMixer_init(); 
@@ -19,11 +19,12 @@ int main(){
     pthread_t tid = UDP_init();
     // standardRockBeat();
     joystick_init();
-    
     Txt_init();
+
+    // wait for udp program to finish
     pthread_join(tid, NULL);
     
-
+    // cancel and join threads and free wav files
     Txt_cleanup();
     joystick_cleanup();
     accelerometer_cleanup();

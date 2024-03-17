@@ -17,16 +17,24 @@ typedef enum Beats_BeatIndex_t {
     NUM_BEATS
 }Beats_BeatIndex;
 
+// initialize wave files
 void initializeSounds();
-// void noDrumBeat();
+// returns active beat
 Beats_BeatIndex getActive();
+// frees wave files
 void freeSounds(); 
+// cancels all threads in playmode()
 void cancelThread(); 
+// plays rock beat
 void* standardRockBeat();
+// plays a different beat
 void* otherBeat();
 void* playMode();
+// plays snare
 void* playAccelX();
+// plays hi-hat
 void* playAccelY();
+// plays bass
 void* playAccelZ();
 
 #endif
