@@ -78,6 +78,16 @@ $(document).ready(() => {
         sendCommand("set_bpm " + bpm);
     });
 
+    $('#btnPlaySnare').click(() => {
+        sendCommand("play_sound 0");
+    });
+    $('#btnPlayHiHat').click(() => {
+        sendCommand("play_sound 1");
+    });
+    $('#btnPlayBass').click(() => {
+        sendCommand("play_sound 2");
+    });
+
     $('#stopProgram').click(() => {
         sendCommand("stop");
     });

@@ -32,11 +32,23 @@ void setMode(int m) {
 int getMode() {
   return mode;
 }
+
+void setPressedX(bool x) {
+  pressedX = x;
+}
 bool getPressedX(){
   return pressedX; 
 }
+
+void setPressedY(bool y) {
+  pressedY = y;
+}
 bool getPressedY(){
   return pressedY; 
+}
+
+void setPressedZ(bool z) {
+  pressedZ = z;
 }
 bool getPressedZ(){
   return pressedZ; 
@@ -106,7 +118,29 @@ void UDP_setBpm(char* recvMsg, char* msg) {
 
 //TODO: not complete
 void UDP_playSound(char* recvMsg, char* msg) {
-  
+  char* recvTok = strtok(recvMsg," ");
+  recvTok = strtok(NULL," ");
+  if(recvTok != NULL) {
+    int newSound = (int) strtol(recvTok, NULL, 10);
+    switch (newSound)
+    {
+    case 0:
+      setPressedX(true);
+      break;
+    case 1:
+      setPressedY(true);
+      break;
+    case 2:
+      setPressedY(true);
+      break;
+    default:
+      snprintf(msg, BUFFER_SIZE, "error: malformed expression\n");  
+      break;
+    }
+  }
+  else {
+    snprintf(msg, BUFFER_SIZE, "error: malformed expression\n");
+  }
 }
 
 void UDP_stopProgram(char* msg) {

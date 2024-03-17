@@ -14,7 +14,7 @@ int main(){
     Period_init();
     initializeSounds(); 
     AudioMixer_init(); 
-    accelerometer_init(); 
+    // accelerometer_init(); 
     
     pthread_t tid = UDP_init();
     // standardRockBeat();
@@ -26,7 +26,7 @@ int main(){
 
     // Txt_cleanup();
     joystick_cleanup();
-    accelerometer_cleanup();
+    // accelerometer_cleanup();
     AudioMixer_cleanup();
     Period_cleanup();
     freeSounds(); 
