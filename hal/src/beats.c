@@ -159,6 +159,7 @@ void* playAccelX(){
             if(!finished){
                 AudioMixer_queueSound(&wavSounds[0]);
                 finished = true; 
+                setPressedX(false);
             }
         }else{
             finished = false; 
@@ -178,6 +179,7 @@ void* playAccelY(){
             if(!finished){
                 AudioMixer_queueSound(&wavSounds[1]);
                 finished = true; 
+                setPressedY(false);
             }
         }else{
             finished = false; 
@@ -196,6 +198,7 @@ void* playAccelZ(){
             if(!finished){
                 AudioMixer_queueSound(&wavSounds[2]);
                 finished = true; 
+                setPressedZ(false);
             }
         }else{
             finished = false; 
