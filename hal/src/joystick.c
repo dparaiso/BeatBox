@@ -135,8 +135,6 @@ void* joystickController(){
                 }
                 pthread_mutex_unlock(&bpmMutex); 
                 break; 
-            case 5: 
-                break; 
         }
         sleepForMs(100);
     }

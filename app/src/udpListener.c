@@ -15,6 +15,9 @@ static pthread_t tid;
 static float uptime = 0;
 int bpm;
 int mode;
+bool pressedX = false; 
+bool pressedY = false; 
+bool pressedZ = false; 
 
 void setBpm(int b) {
   bpm = b;
@@ -29,7 +32,15 @@ void setMode(int m) {
 int getMode() {
   return mode;
 }
-
+bool getPressedX(){
+  return pressedX; 
+}
+bool getPressedY(){
+  return pressedY; 
+}
+bool getPressedZ(){
+  return pressedZ; 
+}
 pthread_t UDP_init() {
   setBpm(120);
   setMode(0);

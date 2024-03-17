@@ -4,6 +4,7 @@
 #include "hal/timer.h"
 #include "hal/beats.h"
 #include "hal/joystick.h"
+#include "hal/accelerometer.h"
 #include "text_display.h"
 #include "udpListener.h"
 #include "periodTimer.h"
@@ -13,10 +14,10 @@ int main(){
     Period_init();
     initializeSounds(); 
     AudioMixer_init(); 
+    accelerometer_init(); 
     
     pthread_t tid = UDP_init();
     // standardRockBeat();
-
     joystick_init();
     
     // Txt_init();
@@ -25,6 +26,7 @@ int main(){
 
     // Txt_cleanup();
     joystick_cleanup();
+    accelerometer_cleanup();
     AudioMixer_cleanup();
     Period_cleanup();
     freeSounds(); 

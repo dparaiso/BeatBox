@@ -2,6 +2,7 @@
 #include "hal/beats.h"
 #include "hal/timer.h"
 #include "hal/joystick.h"
+#include "hal/accelerometer.h"
 #include "../../app/include/udpListener.h"
 #include <pthread.h> 
 #include <stdbool.h> 
@@ -142,6 +143,64 @@ void* playMode(){
         pthread_cancel(mpid); 
     }
     return NULL; 
+}
+
+
+void* playAccelX(){
+    
+    bool negative = (readX() < 0);
+    bool prevStateNegative = negative;
+    bool finished = false; 
+
+    while(1){
+        sleepForMs(150); 
+        negative = (readX() < 0);
+        if(negative != prevStateNegative || getPressedX()){
+            if(!finished){
+                AudioMixer_queueSound(&wavSounds[0]);
+                finished = true; 
+            }
+        }else{
+            finished = false; 
+        }
+    }
+}
+
+void* playAccelY(){
+    bool negative = (readY() < 0);
+    bool prevStateNegative = negative;
+    bool finished = false; 
+    while(1){
+        sleepForMs(150); 
+        // printf("%f\n", readY());
+        negative = (readY() < 0);
+        if(negative != prevStateNegative || getPressedY()){
+            if(!finished){
+                AudioMixer_queueSound(&wavSounds[1]);
+                finished = true; 
+            }
+        }else{
+            finished = false; 
+        }
+    }
+}
+
+void* playAccelZ(){
+    bool negative = (readZ() < 0);
+    bool prevStateNegative = negative;
+    bool finished = false; 
+    while(1){
+        sleepForMs(150); 
+        negative = (readZ() < 0);
+        if(negative != prevStateNegative || getPressedZ()){
+            if(!finished){
+                AudioMixer_queueSound(&wavSounds[2]);
+                finished = true; 
+            }
+        }else{
+            finished = false; 
+        }
+    }
 }
 
 Beats_BeatIndex getActive() {
