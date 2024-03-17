@@ -1,3 +1,12 @@
+// beats.h
+// contains enum BeatIndex which has 4 types including 
+// - BEATS_NO_DRUM_BEAT
+// - BEATS_STANDARD_ROCK_BEAT
+// - BEATS_OTHER_BEAT
+// - NUM_BEATS
+// Module contains the logic for playing different beats and sounds
+
+
 #ifndef _BEATS_H_
 #define _BEATS_H_
 

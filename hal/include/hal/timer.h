@@ -1,5 +1,5 @@
-// Sample button module 
-// Part of the Hardware Abstraction Layer (HAL) 
+// timer.h
+// includes functions for tracking time and sleeping 
 
 #ifndef _TIMER_H_
 #define _TIMER_H_

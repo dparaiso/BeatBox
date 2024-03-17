@@ -1,3 +1,7 @@
+// accelerometer.h
+// Module to handle I2C 
+// application sets up accelerometer threads and reads accelerometer values for X,Y, and Z directions
+// setup is for ZenCape Red
 #ifndef _ACCELEROMETER_H_
 #define _ACCELEROMETER_H_
 #include <stdio.h>

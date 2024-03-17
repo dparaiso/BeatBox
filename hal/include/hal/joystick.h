@@ -1,3 +1,8 @@
+// joystick.h
+// Module controls functionality of joystick 
+// Pressing the joystick in the center triggers the beat mode to change
+// Pressing the joystick left/right triggers bpm change
+// Pressing the joystick up/down triggers volume change
 #ifndef _JOYSTICK_H_
 #define _JOYSTICK_H_
 
