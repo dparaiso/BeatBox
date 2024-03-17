@@ -95,7 +95,7 @@ $(document).ready(() => {
     socket.on("beatBoxCommandReply", (reply) => {
         clearTimeout(replyTimeout);
         err = false;
-        console.log(reply);
+    
         if(reply == "udpServerError") {
             err = true;
             $('#error').show();

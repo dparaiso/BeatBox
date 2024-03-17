@@ -30,6 +30,7 @@ void beatMode_init(){
 
 void beatMode_cleanup(){
     cancelThread(); 
+    pthread_cancel(modepid); 
     pthread_join(modepid, NULL); 
 }
 

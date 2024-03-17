@@ -126,12 +126,15 @@ void UDP_playSound(char* recvMsg, char* msg) {
     {
     case 0:
       setPressedX(true);
+      snprintf(msg, BUFFER_SIZE, "success: sound played\n");
       break;
     case 1:
       setPressedY(true);
+      snprintf(msg, BUFFER_SIZE, "success: sound played\n");
       break;
     case 2:
       setPressedZ(true);
+      snprintf(msg, BUFFER_SIZE, "success: sound played\n");
       break;
     default:
       snprintf(msg, BUFFER_SIZE, "error: malformed expression\n");  
