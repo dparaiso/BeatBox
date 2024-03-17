@@ -1,5 +1,6 @@
 "use strict";
 
+var replyTimeout;
 const socketio = require('socket.io');
 const dgram = require('dgram');
 
@@ -12,8 +13,15 @@ exports.listen = (server) => {
 	});
 };
 
-function parseMessages(socket) {
+const sendError = (socket) => {
+    replyTimeout = setTimeout(()  => {
+        socket.emit('beatBoxCommandReply', "udpServerError");
+    }, 1000);
+};
+
+const parseMessages = (socket) => {
 	socket.on('beatBoxCommand', (data) => {
+		sendError(socket);
 		const HOST = '192.168.7.2';
 		const PORT = 12345;
 		var client = dgram.createSocket('udp4');
@@ -29,6 +37,7 @@ function parseMessages(socket) {
 		});
 		// Handle an incoming message over the UDP from the local application.
 		client.on('message', (msg, rem) => {
+			clearTimeout(replyTimeout);
 			console.log("UDP Client: message " + rem.address + ':' + rem.port +' - ' + msg);
 			var reply = msg.toString('utf8')
 			socket.emit('beatBoxCommandReply', reply);

@@ -1,6 +1,18 @@
 "use strict";
 
+var replyTimeout;
 var socket = io.connect();
+var err = false;
+
+const showError = () => {
+    replyTimeout = setTimeout(()  => {
+        if(!err) {
+            $('#error').show();
+            $('#errorMsg').text("No response from NodeJS server");
+        }
+        err =true;
+    }, 1000);
+};
 
 $(document).ready(() => {
     //initial values
@@ -9,8 +21,9 @@ $(document).ready(() => {
     $('#bpm').val(120);
     $('#error').hide();
 
-    setInterval(function() {
+    setInterval(() => {
         sendCommand('info');
+        showError();
     }, 500);
 
     $('#btnNoDrum').click(() => {
@@ -70,6 +83,17 @@ $(document).ready(() => {
     });
 
     socket.on("beatBoxCommandReply", (reply) => {
+        clearTimeout(replyTimeout);
+        err = false;
+        console.log(reply);
+        if(reply == "udpServerError") {
+            err = true;
+            $('#error').show();
+            $('#errorMsg').text("No response from C UDP server");
+        }
+        else {
+            $('#error').hide();
+        }
 
         reply = reply.split(" ");
         if(reply[0] == "info:") {
