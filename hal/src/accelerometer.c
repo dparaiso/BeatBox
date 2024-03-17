@@ -14,7 +14,7 @@ void accelerometer_init(){
 
     initI2cBus(); 
     // enable chip
-    writeI2cReg(CTRL_REG1, 0x37);
+    writeI2cReg(CTRL_REG1, 0x3F);
     sleepForMs(5); 
     
     // create one thread for each directon
@@ -103,8 +103,8 @@ float readX(){
     uint16_t floatx = ((buff[REG_XMSB] << 8) | buff[REG_XLSB]);
 	// printf("msb: %d\n", buff[REG_XMSB] << 8); 
 	// printf("lsb: %d\n", buff[REG_XLSB]); 
-	// printf("x: %f\n", (float)floatx);
-    return (float)floatx/100;
+	// printf("x: %f\n", (float)floatx/1000);
+    return (float)floatx/1000;
 }
 
 float readY(){
@@ -125,5 +125,6 @@ float readZ(){
     buff[REG_ZLSB] = (unsigned int)readI2cReg(OUT_Z_L);
     buff[REG_ZMSB] = (unsigned int)readI2cReg(OUT_Z_H);
     int16_t floatx = (buff[REG_ZMSB] << 8) | buff[REG_ZLSB]; 
+	// printf("z: %f\n", (float)floatx);
     return (float)floatx/100;
 }
