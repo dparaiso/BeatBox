@@ -131,6 +131,7 @@ void* playMode(){
         if(!noThread && (prevMode != mode)){
             if(prevMode != 0){
                 pthread_cancel(mpid); 
+                pthread_join(mpid, NULL);
                 noThread = true; 
             }
         }
@@ -141,6 +142,7 @@ void* playMode(){
     // clean up existing threads
     if(!noThread){
         pthread_cancel(mpid); 
+        pthread_join(mpid, NULL);
     }
     return NULL; 
 }
