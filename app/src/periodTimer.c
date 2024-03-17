@@ -56,7 +56,7 @@ void Period_markEvent(enum Period_whichEvent whichEvent)
             pData->timestampsInNs[pData->timestampCount] = getTimeInNanoS();
             pData->timestampCount++;
         } else {
-            printf("WARNING: No sample space for event collection on %d\n", whichEvent);
+            // printf("WARNING: No sample space for event collection on %d\n", whichEvent);
         }
     }
     pthread_mutex_unlock(&s_lock);
