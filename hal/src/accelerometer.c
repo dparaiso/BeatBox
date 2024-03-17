@@ -101,9 +101,6 @@ float readX(){
     buff[REG_XMSB] = (unsigned int)readI2cReg(OUT_X_H);
     buff[REG_XLSB] = (unsigned int)readI2cReg(OUT_X_L);
     uint16_t floatx = ((buff[REG_XMSB] << 8) | buff[REG_XLSB]);
-	// printf("msb: %d\n", buff[REG_XMSB] << 8); 
-	// printf("lsb: %d\n", buff[REG_XLSB]); 
-	// printf("x: %f\n", (float)floatx/1000);
     return (float)floatx/1000;
 }
 
@@ -114,7 +111,6 @@ float readY(){
     buff[REG_YLSB] = (unsigned int)readI2cReg(OUT_Y_L);
     buff[REG_YMSB] = (unsigned int)readI2cReg(OUT_Y_H);
     int16_t floatx = (buff[REG_YMSB] << 8) | buff[REG_YLSB]; 
-	// printf("y: %f\n", (float)floatx);
     return (float)floatx/100;
 }
 
@@ -125,6 +121,5 @@ float readZ(){
     buff[REG_ZLSB] = (unsigned int)readI2cReg(OUT_Z_L);
     buff[REG_ZMSB] = (unsigned int)readI2cReg(OUT_Z_H);
     int16_t floatx = (buff[REG_ZMSB] << 8) | buff[REG_ZLSB]; 
-	// printf("z: %f\n", (float)floatx);
     return (float)floatx/100;
 }
