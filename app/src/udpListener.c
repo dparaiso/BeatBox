@@ -116,7 +116,6 @@ void UDP_setBpm(char* recvMsg, char* msg) {
   }
 }
 
-//TODO: not complete
 void UDP_playSound(char* recvMsg, char* msg) {
   char* recvTok = strtok(recvMsg," ");
   recvTok = strtok(NULL," ");
