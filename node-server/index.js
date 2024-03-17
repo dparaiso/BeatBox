@@ -1,6 +1,4 @@
-var PORT = 8088;
-
-
+const PORT = 8088;
 const https = require('https');
 const path = require('path');
 const mime = require('mime');
@@ -37,6 +35,6 @@ const requestListener = (res, filePath) => {
 	  })
 };
 
-var udpServer = require('./lib/udpServer');
+const udpServer = require('./lib/udpServer');
 udpServer.listen(server)
 
