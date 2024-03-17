@@ -3,7 +3,8 @@
         "pthread.h": "c",
         "beats.h": "c",
         "stdbool.h": "c",
-        "timer.h": "c"
+        "timer.h": "c",
+        "udplistener.h": "c"
     }, 
     "cmake.configureOnOpen": true
 }
