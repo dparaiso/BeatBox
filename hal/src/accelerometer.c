@@ -114,7 +114,6 @@ float readY(){
     buff[REG_YLSB] = (unsigned int)readI2cReg(OUT_Y_L);
     buff[REG_YMSB] = (unsigned int)readI2cReg(OUT_Y_H);
     int16_t floatx = (buff[REG_YMSB] << 8) | buff[REG_YLSB]; 
-    Period_markEvent(PERIOD_EVENT_SAMPLE_ACCEL);
     return (float)floatx/100;
 }
 
@@ -125,6 +124,5 @@ float readZ(){
     buff[REG_ZLSB] = (unsigned int)readI2cReg(OUT_Z_L);
     buff[REG_ZMSB] = (unsigned int)readI2cReg(OUT_Z_H);
     int16_t floatx = (buff[REG_ZMSB] << 8) | buff[REG_ZLSB]; 
-    Period_markEvent(PERIOD_EVENT_SAMPLE_ACCEL);
     return (float)floatx/100;
 }

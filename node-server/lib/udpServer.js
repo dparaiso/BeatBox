@@ -35,7 +35,7 @@ const parseMessages = (socket) => {
 			var address = client.address();
 			console.log('UDP Client: listening on ' + address.address + ":" + address.port);
 		});
-		// Handle an incoming message over the UDP from the local application.
+
 		client.on('message', (msg, rem) => {
 			clearTimeout(replyTimeout);
 			console.log("UDP Client: message " + rem.address + ':' + rem.port +' - ' + msg);

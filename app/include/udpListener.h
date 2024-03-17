@@ -20,14 +20,21 @@ void* UDP_startListening();
 // Takes the received message in buff and populates msg with the correct response
 void UDP_parseMessage(char* buff, int bytesRead, char* msg);
 
+// setBPM from joystick or udp command
 void setBpm(int b);
 int getBpm();
+
+// setMode from joystick or udp command
 void setMode(int m);
 int getMode();
+
+// set sound 0 to be played from udp command
 void setPressedX(bool x);
 bool getPressedX();
+// set sound 1 to be played from udp command
 void setPressedY(bool y);
 bool getPressedY();
+// set sound 2 to be played from udp command
 void setPressedZ(bool z);
 bool getPressedZ();
 
