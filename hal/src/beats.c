@@ -131,6 +131,7 @@ void* playMode(){
         if(!noThread && (prevMode != mode)){
             if(prevMode != 0){
                 pthread_cancel(mpid); 
+                pthread_join(mpid, NULL);
                 noThread = true; 
             }
         }
@@ -141,6 +142,7 @@ void* playMode(){
     // clean up existing threads
     if(!noThread){
         pthread_cancel(mpid); 
+        pthread_join(mpid, NULL);
     }
     return NULL; 
 }
@@ -160,6 +162,7 @@ void* playAccelX(){
                 // printf("xSound\n");
                 AudioMixer_queueSound(&wavSounds[0]);
                 finished = true; 
+                setPressedX(false);
             }
         }else{
             finished = false; 
@@ -178,6 +181,7 @@ void* playAccelY(){
             if(!finished){
                 AudioMixer_queueSound(&wavSounds[1]);
                 finished = true; 
+                setPressedY(false);
             }
         }else{
             finished = false; 
@@ -196,6 +200,7 @@ void* playAccelZ(){
             if(!finished){
                 AudioMixer_queueSound(&wavSounds[2]);
                 finished = true; 
+                setPressedZ(false);
             }
         }else{
             finished = false; 

@@ -24,8 +24,11 @@ void setBpm(int b);
 int getBpm();
 void setMode(int m);
 int getMode();
+void setPressedX(bool x);
 bool getPressedX();
+void setPressedY(bool y);
 bool getPressedY();
+void setPressedZ(bool z);
 bool getPressedZ();
 
 #endif
