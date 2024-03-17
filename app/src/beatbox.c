@@ -14,19 +14,19 @@ int main(){
     Period_init();
     initializeSounds(); 
     AudioMixer_init(); 
-    // accelerometer_init(); 
+    accelerometer_init(); 
     
     pthread_t tid = UDP_init();
     // standardRockBeat();
     joystick_init();
     
-    // Txt_init();
+    Txt_init();
     pthread_join(tid, NULL);
     
 
-    // Txt_cleanup();
+    Txt_cleanup();
     joystick_cleanup();
-    // accelerometer_cleanup();
+    accelerometer_cleanup();
     AudioMixer_cleanup();
     Period_cleanup();
     freeSounds(); 
