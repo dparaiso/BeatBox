@@ -102,15 +102,9 @@ float readX(){
     buff[REG_XMSB] = (unsigned int)readI2cReg(OUT_X_H);
     buff[REG_XLSB] = (unsigned int)readI2cReg(OUT_X_L);
     uint16_t floatx = ((buff[REG_XMSB] << 8) | buff[REG_XLSB]);
-<<<<<<< HEAD
-    return (float)floatx/1000;
-=======
-	// printf("msb: %d\n", buff[REG_XMSB] << 8); 
-	// printf("lsb: %d\n", buff[REG_XLSB]); 
-	// printf("x: %f\n", (float)floatx);
     Period_markEvent(PERIOD_EVENT_SAMPLE_ACCEL);
-    return (float)floatx/100;
->>>>>>> node
+    return (float)floatx/1000;
+
 }
 
 float readY(){
@@ -120,11 +114,7 @@ float readY(){
     buff[REG_YLSB] = (unsigned int)readI2cReg(OUT_Y_L);
     buff[REG_YMSB] = (unsigned int)readI2cReg(OUT_Y_H);
     int16_t floatx = (buff[REG_YMSB] << 8) | buff[REG_YLSB]; 
-<<<<<<< HEAD
-=======
-	// printf("y: %f\n", (float)floatx);
     Period_markEvent(PERIOD_EVENT_SAMPLE_ACCEL);
->>>>>>> node
     return (float)floatx/100;
 }
 

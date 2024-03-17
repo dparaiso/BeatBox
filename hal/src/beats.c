@@ -171,7 +171,7 @@ void* playAccelX(){
 }
 
 void* playAccelY(){
-    bool negative = (readY() < -100 || readY() > 100);
+    bool negative = (readY() < -200 || readY() > 200);
     bool prevStateNegative = negative;
     bool finished = false; 
     while(1){
