@@ -1,8 +1,4 @@
-# CMPT 433 Sample Assignment Build Structure for ALSA project
-
-This is a working project that you can use as the basis for your assignments.
-
-## Sturcture
+##  Build Structure for ALSA project
 
 - `hal/`: Contains all low-level hardware abstraction layer (HAL) modules
 - `app/`: Contains all application-specific code. Broken into modules and a main file
